@@ -131,7 +131,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p2H-oj-5qg">
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="p2H-oj-5qg">
                                         <rect key="frame" x="303" y="8" width="49" height="31"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </switch>
@@ -212,6 +212,12 @@
                     </tabBarItem>
                     <navigationItem key="navigationItem" title="My Goals" id="y1X-rA-iHr"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="UIView1" destination="DOD-Ka-63B" id="pJy-9S-CzK"/>
+                        <outlet property="UIView2" destination="IgK-Tc-Pgv" id="a7h-rB-mBu"/>
+                        <outlet property="UIView3" destination="vCw-Dw-gtM" id="iRt-TB-hBT"/>
+                        <outlet property="UIView4" destination="LVg-Oz-orl" id="Kyh-oz-wxm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K1n-CN-lUY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
