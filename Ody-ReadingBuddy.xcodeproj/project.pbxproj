@@ -22,6 +22,7 @@
 		0110ABB727FDECD8006BFD84 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0110ABB627FDECD8006BFD84 /* NotificationViewController.swift */; };
 		0110ABB927FDECDE006BFD84 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0110ABB827FDECDE006BFD84 /* TimerViewController.swift */; };
 		0110ABBB27FDECE4006BFD84 /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0110ABBA27FDECE4006BFD84 /* OnBoardingViewController.swift */; };
+		01B26DD727FF20310004A93C /* GoalsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B26DD627FF20310004A93C /* GoalsTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		0110ABB627FDECD8006BFD84 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		0110ABB827FDECDE006BFD84 /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		0110ABBA27FDECE4006BFD84 /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
+		01B26DD627FF20310004A93C /* GoalsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,9 +119,9 @@
 		0110ABA927FDEA46006BFD84 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				01B26DD827FF20380004A93C /* MyGoals */,
 				0110ABBA27FDECE4006BFD84 /* OnBoardingViewController.swift */,
 				0110AB9327FDEA1F006BFD84 /* TabBarViewController.swift */,
-				0110ABB427FDECCD006BFD84 /* MyGoalsViewController.swift */,
 				0110ABB627FDECD8006BFD84 /* NotificationViewController.swift */,
 				0110ABB827FDECDE006BFD84 /* TimerViewController.swift */,
 			);
@@ -140,6 +142,15 @@
 				0110ABB127FDEAD1006BFD84 /* OnBoarding.storyboard */,
 			);
 			path = LaunchScreen;
+			sourceTree = "<group>";
+		};
+		01B26DD827FF20380004A93C /* MyGoals */ = {
+			isa = PBXGroup;
+			children = (
+				0110ABB427FDECCD006BFD84 /* MyGoalsViewController.swift */,
+				01B26DD627FF20310004A93C /* GoalsTableViewController.swift */,
+			);
+			path = MyGoals;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -218,6 +229,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0110AB9427FDEA1F006BFD84 /* TabBarViewController.swift in Sources */,
+				01B26DD727FF20310004A93C /* GoalsTableViewController.swift in Sources */,
 				0110AB9027FDEA1F006BFD84 /* AppDelegate.swift in Sources */,
 				0110ABB727FDECD8006BFD84 /* NotificationViewController.swift in Sources */,
 				0110ABBB27FDECE4006BFD84 /* OnBoardingViewController.swift in Sources */,
