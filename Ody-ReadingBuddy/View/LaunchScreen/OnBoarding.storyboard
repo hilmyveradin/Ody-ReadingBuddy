@@ -25,7 +25,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gbf-vQ-rUB">
-                                <rect key="frame" x="299" y="44" width="75" height="35"/>
+                                <rect key="frame" x="301" y="52" width="75" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
@@ -67,6 +67,7 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="startClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="y7b-Wy-8cm"/>
+                                    <segue destination="TbC-HA-1ce" kind="show" id="42B-G8-wZV"/>
                                 </connections>
                             </button>
                             <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="g67-r3-pjE">
@@ -106,6 +107,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="35" y="17"/>
+        </scene>
+        <!--Timer-->
+        <scene sceneID="KXy-Nx-mEs">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Timer" id="TbC-HA-1ce" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="DtG-We-rLG"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I3Y-UD-FYL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="644" y="16"/>
         </scene>
     </scenes>
     <resources>
