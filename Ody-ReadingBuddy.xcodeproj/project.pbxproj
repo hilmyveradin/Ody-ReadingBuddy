@@ -22,6 +22,7 @@
 		0110ABB927FDECDE006BFD84 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0110ABB827FDECDE006BFD84 /* TimerViewController.swift */; };
 		0110ABBB27FDECE4006BFD84 /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0110ABBA27FDECE4006BFD84 /* OnBoardingViewController.swift */; };
 		01B26DDA27FF35290004A93C /* MyGoalsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B26DD927FF35290004A93C /* MyGoalsViewController.swift */; };
+		E16FE5E227FFDDF5005FC8F7 /* OnBoarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16FE5E127FFDDF5005FC8F7 /* OnBoarding.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		0110ABB827FDECDE006BFD84 /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		0110ABBA27FDECE4006BFD84 /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
 		01B26DD927FF35290004A93C /* MyGoalsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGoalsViewController.swift; sourceTree = "<group>"; };
+		E16FE5E127FFDDF5005FC8F7 /* OnBoarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoarding.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				0110AB9827FDEA1F006BFD84 /* ReadingApp_Dummy.xcdatamodeld */,
+				E16FE5E127FFDDF5005FC8F7 /* OnBoarding.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -221,6 +224,7 @@
 				01B26DDA27FF35290004A93C /* MyGoalsViewController.swift in Sources */,
 				0110AB9027FDEA1F006BFD84 /* AppDelegate.swift in Sources */,
 				0110ABB727FDECD8006BFD84 /* NotificationViewController.swift in Sources */,
+				E16FE5E227FFDDF5005FC8F7 /* OnBoarding.swift in Sources */,
 				0110ABBB27FDECE4006BFD84 /* OnBoardingViewController.swift in Sources */,
 				0110ABB927FDECDE006BFD84 /* TimerViewController.swift in Sources */,
 				0110AB9227FDEA1F006BFD84 /* SceneDelegate.swift in Sources */,
