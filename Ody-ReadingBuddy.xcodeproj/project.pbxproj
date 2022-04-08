@@ -22,6 +22,8 @@
 		0110ABB727FDECD8006BFD84 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0110ABB627FDECD8006BFD84 /* NotificationViewController.swift */; };
 		0110ABB927FDECDE006BFD84 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0110ABB827FDECDE006BFD84 /* TimerViewController.swift */; };
 		0110ABBB27FDECE4006BFD84 /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0110ABBA27FDECE4006BFD84 /* OnBoardingViewController.swift */; };
+		F91B9DC627FFE2DE000F5165 /* maskotBaca.gif in Resources */ = {isa = PBXBuildFile; fileRef = F91B9DC527FFE2DE000F5165 /* maskotBaca.gif */; };
+		F91B9DC827FFE330000F5165 /* masccotfin.gif in Resources */ = {isa = PBXBuildFile; fileRef = F91B9DC727FFE330000F5165 /* masccotfin.gif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,8 @@
 		0110ABB627FDECD8006BFD84 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		0110ABB827FDECDE006BFD84 /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		0110ABBA27FDECE4006BFD84 /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
+		F91B9DC527FFE2DE000F5165 /* maskotBaca.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = maskotBaca.gif; sourceTree = "<group>"; };
+		F91B9DC727FFE330000F5165 /* masccotfin.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = masccotfin.gif; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +133,8 @@
 		0110ABAA27FDEA4C006BFD84 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				F91B9DC727FFE330000F5165 /* masccotfin.gif */,
+				F91B9DC527FFE2DE000F5165 /* maskotBaca.gif */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -200,9 +206,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F91B9DC627FFE2DE000F5165 /* maskotBaca.gif in Resources */,
 				0110ABAE27FDEAB9006BFD84 /* Timer.storyboard in Resources */,
 				0110AB9F27FDEA20006BFD84 /* LaunchScreen.storyboard in Resources */,
 				0110ABAC27FDEAB2006BFD84 /* MyGoals.storyboard in Resources */,
+				F91B9DC827FFE330000F5165 /* masccotfin.gif in Resources */,
 				0110AB9C27FDEA20006BFD84 /* Assets.xcassets in Resources */,
 				0110ABB227FDEAD1006BFD84 /* OnBoarding.storyboard in Resources */,
 				0110AB9727FDEA1F006BFD84 /* Main.storyboard in Resources */,
