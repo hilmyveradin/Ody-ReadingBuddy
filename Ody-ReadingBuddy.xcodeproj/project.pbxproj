@@ -21,6 +21,8 @@
 		0110ABB727FDECD8006BFD84 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0110ABB627FDECD8006BFD84 /* NotificationViewController.swift */; };
 		0110ABB927FDECDE006BFD84 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0110ABB827FDECDE006BFD84 /* TimerViewController.swift */; };
 		0110ABBB27FDECE4006BFD84 /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0110ABBA27FDECE4006BFD84 /* OnBoardingViewController.swift */; };
+		01374A4427FFE91D006A6147 /* masccotfin.gif in Resources */ = {isa = PBXBuildFile; fileRef = 01374A4227FFE91D006A6147 /* masccotfin.gif */; };
+		01374A4527FFE91D006A6147 /* maskotBaca.gif in Resources */ = {isa = PBXBuildFile; fileRef = 01374A4327FFE91D006A6147 /* maskotBaca.gif */; };
 		01B26DDA27FF35290004A93C /* MyGoalsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B26DD927FF35290004A93C /* MyGoalsViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +43,8 @@
 		0110ABB627FDECD8006BFD84 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		0110ABB827FDECDE006BFD84 /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		0110ABBA27FDECE4006BFD84 /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
+		01374A4227FFE91D006A6147 /* masccotfin.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = masccotfin.gif; sourceTree = "<group>"; };
+		01374A4327FFE91D006A6147 /* maskotBaca.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = maskotBaca.gif; sourceTree = "<group>"; };
 		01B26DD927FF35290004A93C /* MyGoalsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGoalsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -129,6 +133,8 @@
 		0110ABAA27FDEA4C006BFD84 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				01374A4227FFE91D006A6147 /* masccotfin.gif */,
+				01374A4327FFE91D006A6147 /* maskotBaca.gif */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -201,6 +207,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				0110ABAE27FDEAB9006BFD84 /* Timer.storyboard in Resources */,
+				01374A4427FFE91D006A6147 /* masccotfin.gif in Resources */,
+				01374A4527FFE91D006A6147 /* maskotBaca.gif in Resources */,
 				0110AB9F27FDEA20006BFD84 /* LaunchScreen.storyboard in Resources */,
 				0110ABAC27FDEAB2006BFD84 /* MyGoals.storyboard in Resources */,
 				0110AB9C27FDEA20006BFD84 /* Assets.xcassets in Resources */,
