@@ -11,7 +11,7 @@
 		0110AB9227FDEA1F006BFD84 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0110AB9127FDEA1F006BFD84 /* SceneDelegate.swift */; };
 		0110AB9427FDEA1F006BFD84 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0110AB9327FDEA1F006BFD84 /* TabBarViewController.swift */; };
 		0110AB9727FDEA1F006BFD84 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0110AB9527FDEA1F006BFD84 /* Main.storyboard */; };
-		0110AB9A27FDEA1F006BFD84 /* ReadingApp_Dummy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0110AB9827FDEA1F006BFD84 /* ReadingApp_Dummy.xcdatamodeld */; };
+		0110AB9A27FDEA1F006BFD84 /* OdyModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0110AB9827FDEA1F006BFD84 /* OdyModel.xcdatamodeld */; };
 		0110AB9C27FDEA20006BFD84 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0110AB9B27FDEA20006BFD84 /* Assets.xcassets */; };
 		0110AB9F27FDEA20006BFD84 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0110AB9D27FDEA20006BFD84 /* LaunchScreen.storyboard */; };
 		0110ABAC27FDEAB2006BFD84 /* MyGoals.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0110ABAB27FDEAB2006BFD84 /* MyGoals.storyboard */; };
@@ -23,6 +23,9 @@
 		0110ABBB27FDECE4006BFD84 /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0110ABBA27FDECE4006BFD84 /* OnBoardingViewController.swift */; };
 		01374A4427FFE91D006A6147 /* masccotfin.gif in Resources */ = {isa = PBXBuildFile; fileRef = 01374A4227FFE91D006A6147 /* masccotfin.gif */; };
 		01374A4527FFE91D006A6147 /* maskotBaca.gif in Resources */ = {isa = PBXBuildFile; fileRef = 01374A4327FFE91D006A6147 /* maskotBaca.gif */; };
+		01374A4827FFEAE2006A6147 /* CustomGoalsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01374A4727FFEAE2006A6147 /* CustomGoalsViewController.swift */; };
+		01374A4A28000F73006A6147 /* DictionaryExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01374A4928000F73006A6147 /* DictionaryExtension.swift */; };
+		01374A4C280033BD006A6147 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01374A4B280033BD006A6147 /* CoreDataManager.swift */; };
 		01B26DDA27FF35290004A93C /* MyGoalsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B26DD927FF35290004A93C /* MyGoalsViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +48,9 @@
 		0110ABBA27FDECE4006BFD84 /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
 		01374A4227FFE91D006A6147 /* masccotfin.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = masccotfin.gif; sourceTree = "<group>"; };
 		01374A4327FFE91D006A6147 /* maskotBaca.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = maskotBaca.gif; sourceTree = "<group>"; };
+		01374A4727FFEAE2006A6147 /* CustomGoalsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomGoalsViewController.swift; sourceTree = "<group>"; };
+		01374A4928000F73006A6147 /* DictionaryExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryExtension.swift; sourceTree = "<group>"; };
+		01374A4B280033BD006A6147 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		01B26DD927FF35290004A93C /* MyGoalsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGoalsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -94,6 +100,7 @@
 			children = (
 				0110AB8F27FDEA1F006BFD84 /* AppDelegate.swift */,
 				0110AB9127FDEA1F006BFD84 /* SceneDelegate.swift */,
+				01374A4928000F73006A6147 /* DictionaryExtension.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -101,7 +108,8 @@
 		0110ABA727FDEA30006BFD84 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				0110AB9827FDEA1F006BFD84 /* ReadingApp_Dummy.xcdatamodeld */,
+				0110AB9827FDEA1F006BFD84 /* OdyModel.xcdatamodeld */,
+				01374A4B280033BD006A6147 /* CoreDataManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -121,11 +129,11 @@
 		0110ABA927FDEA46006BFD84 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				01374A4627FFEAD1006A6147 /* My Goals */,
 				0110ABBA27FDECE4006BFD84 /* OnBoardingViewController.swift */,
 				0110AB9327FDEA1F006BFD84 /* TabBarViewController.swift */,
 				0110ABB627FDECD8006BFD84 /* NotificationViewController.swift */,
 				0110ABB827FDECDE006BFD84 /* TimerViewController.swift */,
-				01B26DD927FF35290004A93C /* MyGoalsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -146,6 +154,15 @@
 				0110ABB127FDEAD1006BFD84 /* OnBoarding.storyboard */,
 			);
 			path = LaunchScreen;
+			sourceTree = "<group>";
+		};
+		01374A4627FFEAD1006A6147 /* My Goals */ = {
+			isa = PBXGroup;
+			children = (
+				01B26DD927FF35290004A93C /* MyGoalsViewController.swift */,
+				01374A4727FFEAE2006A6147 /* CustomGoalsViewController.swift */,
+			);
+			path = "My Goals";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,8 +248,11 @@
 				0110ABB727FDECD8006BFD84 /* NotificationViewController.swift in Sources */,
 				0110ABBB27FDECE4006BFD84 /* OnBoardingViewController.swift in Sources */,
 				0110ABB927FDECDE006BFD84 /* TimerViewController.swift in Sources */,
+				01374A4C280033BD006A6147 /* CoreDataManager.swift in Sources */,
+				01374A4827FFEAE2006A6147 /* CustomGoalsViewController.swift in Sources */,
+				01374A4A28000F73006A6147 /* DictionaryExtension.swift in Sources */,
 				0110AB9227FDEA1F006BFD84 /* SceneDelegate.swift in Sources */,
-				0110AB9A27FDEA1F006BFD84 /* ReadingApp_Dummy.xcdatamodeld in Sources */,
+				0110AB9A27FDEA1F006BFD84 /* OdyModel.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -454,13 +474,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		0110AB9827FDEA1F006BFD84 /* ReadingApp_Dummy.xcdatamodeld */ = {
+		0110AB9827FDEA1F006BFD84 /* OdyModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
 				0110AB9927FDEA1F006BFD84 /* ReadingApp_Dummy.xcdatamodel */,
 			);
 			currentVersion = 0110AB9927FDEA1F006BFD84 /* ReadingApp_Dummy.xcdatamodel */;
-			path = ReadingApp_Dummy.xcdatamodeld;
+			path = OdyModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

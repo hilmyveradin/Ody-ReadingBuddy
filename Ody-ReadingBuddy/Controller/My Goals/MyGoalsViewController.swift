@@ -41,6 +41,18 @@ class MyGoalsViewController: UIViewController {
     print(endDate.date)
     print(customSwitch.isOn)
     print(durationGoal.date)
+    
+    let alert = UIAlertController(title: "Goals Saved", message: "You have sucessfully saved your goals" , preferredStyle: .alert)
+    alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
+      NSLog("The \"OK\" alert occured.")
+    }))
+    self.present(alert, animated: true, completion: nil)
+  }
+  
+  @IBAction func switchCustomPressed(_ sender: UISwitch!) {
+    if customSwitch.isOn {
+      performSegue(withIdentifier: "goalsToCustom", sender: sender)
+    }
   }
   
   //MARK: - Helpers
@@ -54,4 +66,10 @@ class MyGoalsViewController: UIViewController {
     UIView4.layer.cornerRadius = 8
     saveButton.layer.cornerRadius = 8
   }
+  
+  func createNotification() {
+    
+  }
 }
+
+
