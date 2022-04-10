@@ -23,15 +23,25 @@ class CustomGoalsViewController: UIViewController {
   
   var days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
   var daysDict = [
+    "Sunday" : false,
     "Monday": false,
     "Tuesday": false,
     "Wednesday" : false,
     "Thursday" : false,
     "Friday" : false,
-    "Saturday" : false,
-    "Sunday" : false
+    "Saturday" : false
   ]
-  var selectedDays = [String]()
+  var daysIndex = [
+    "Sunday" : 1,
+    "Monday": 2,
+    "Tuesday": 3,
+    "Wednesday" : 4,
+    "Thursday" : 5,
+    "Friday" : 6,
+    "Saturday" : 7
+  ]
+  var selectedDaysString = [String]()
+  var selectedDaysIndex = [Int]()
   
   // MARK: - Life Cycles
   override func viewDidLoad() {
@@ -46,11 +56,16 @@ class CustomGoalsViewController: UIViewController {
     }))
     self.present(alert, animated: true, completion: nil)
     getSelectedDays()
+    print(selectedDaysIndex)
   }
   
   private func getSelectedDays() {
-    selectedDays = daysDict.allKeys(forValue: true)
-    print(selectedDays)
+    selectedDaysString = daysDict.allKeys(forValue: true)
+    for string in selectedDaysString {
+      if daysIndex[string] != nil {
+        selectedDaysIndex.append(daysIndex[string]!)
+      }
+    }
   }
 }
 

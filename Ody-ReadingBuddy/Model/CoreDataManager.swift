@@ -11,7 +11,7 @@ import CoreData
 class CoreDataManager {
   
   // MARK: - Properties
-
+  
   static let manager = CoreDataManager()
   
   // MARK: - Basic Function
@@ -28,10 +28,10 @@ class CoreDataManager {
     }
     return container
   }()
-
+  
   func saveContext () {
     guard managedContext.hasChanges else { return }
-
+    
     do {
       try managedContext.save()
     } catch let error as NSError {
@@ -39,56 +39,136 @@ class CoreDataManager {
     }
   }
   
-  // MARK: - Goals Functions
-  func insertGoals(goalsName: String, goalsCount: Int16) {
+  // MARK: - My Goals Functions
+  func insertGoal(goalsName: String?, startDate: Date?, endDate: Date?, isCustom: Bool?, duration: Date? ) {
     let context = CoreDataManager.manager.managedContext
-    let goals = Goals(context: context)
+    let goals = MyGoals(context: context)
     
-    goals.goalsName = goalsName
-    goals.goalsCount = goalsCount
+    if let goalsName = goalsName,
+       let startDate = startDate,
+       let endDate = endDate,
+       let isCustom = isCustom,
+       let duration = duration {
+      
+      goals.goalsName = goalsName
+      goals.endDate = endDate
+      goals.startDate = startDate
+      goals.duration = duration
+      goals.isCustom = isCustom
+      
+      try? context.save()
+    }
     
-    try? context.save()
+    
   }
   
-  func deleteGoals(goals: Goals) {
+  func deleteGoals(goals: MyGoals) {
     let context = CoreDataManager.manager.managedContext
     context.delete(goals)
   }
   
-  
-  func updateDayCount(to goalsCount: Int16, for goals: Goals) {
-    let context = CoreDataManager.manager.managedContext
-    goals.goalsCount = goalsCount+1
-    try? context.save()
-  }
-  
-  func fetchGoals() -> Goals? {
-    let request = NSFetchRequest<Goals>(entityName: "Goals")
+  func fetchGoals() -> MyGoals? {
+    let request = NSFetchRequest<MyGoals>(entityName: "MyGoals")
     let goals = try! CoreDataManager.manager.managedContext.fetch(request)
     return goals[0]
   }
   
-  // MARK: - Notifications Functions
-  func insertStartDate() {
+  // MARK: - Preferences Functions
+  func insertPreferences(index: Int16?) {
+    let context = CoreDataManager.manager.managedContext
+    let preference = Preferences(context: context)
     
+    if let index = index {
+      preference.preferencesIndex = index
+      try? context.save()
+    }
   }
   
-  func insertEndDate() {
-    
+  func deletePreferences(preferences: Preferences) {
+    let context = CoreDataManager.manager.managedContext
+    context.delete(preferences)
   }
   
-  func insertPreferences() {
-    
+  func fetchPreferences() -> Preferences? {
+    let request = NSFetchRequest<Preferences>(entityName: "Preferences")
+    let preferences = try! CoreDataManager.manager.managedContext.fetch(request)
+    return preferences[0]
   }
   
-  func insertCustomDays() {
+  // MARK: - Home Functions
+  func insertHomeTarget(daysTarget: Int16?, timeTarget: Int16?) {
+    let context = CoreDataManager.manager.managedContext
+    let home = Home(context: context)
     
+    if let daysTarget = daysTarget,
+       let timeTarget = timeTarget {
+      home.daysTarget = daysTarget
+      home.timeTarget = timeTarget
+      home.daysTarget = 0
+      home.timeTarget = 0
+    }
+  }
+  
+  func increaseDaysSpent() {
+    let context = CoreDataManager.manager.managedContext
+    let home = Home(context: context)
+    home.daysSpent += 1
+  }
+  
+  func increaseTimeSpent(addedTimeSpent: Int16) {
+    let context = CoreDataManager.manager.managedContext
+    let home = Home(context: context)
+    home.timeSpent += addedTimeSpent
+  }
+  
+  func resetTimeSpent() {
+    let context = CoreDataManager.manager.managedContext
+    let home = Home(context: context)
+    home.daysSpent = 0
+  }
+  
+  func deleteHome(home: Home) {
+    let context = CoreDataManager.manager.managedContext
+    context.delete(home)
+  }
+  
+  func fetchHome() -> Home? {
+    let request = NSFetchRequest<Home>(entityName: "Home")
+    let home = try! CoreDataManager.manager.managedContext.fetch(request)
+    return home[0]
   }
   
   // MARK: - Timer Functions
-  func insertTimer() {
+  
+  func insertTimer(currentTimer: Int16?) {
+    let context = CoreDataManager.manager.managedContext
+    let timer = Timer(context: context)
     
+    if let currentTimer = currentTimer {
+      timer.currentTimer = currentTimer
+    }
   }
   
+  func deleteTimer(timer: Timer) {
+    let context = CoreDataManager.manager.managedContext
+    context.delete(timer)
+  }
   
+  func fetchTimer() -> Timer? {
+    let request = NSFetchRequest<Timer>(entityName: "Timer")
+    let timer = try! CoreDataManager.manager.managedContext.fetch(request)
+    return timer[0]
+  }
+  
+  func updateTimer(currentTimer: Int16 ) {
+    let context = CoreDataManager.manager.managedContext
+    let timer = Timer(context: context)
+    timer.currentTimer += currentTimer
+  }
+  
+  func resetTimer() {
+    let context = CoreDataManager.manager.managedContext
+    let timer = Timer(context: context)
+    timer.currentTimer = 0
+  }
 }
