@@ -143,6 +143,8 @@
 				0110AB9327FDEA1F006BFD84 /* TabBarViewController.swift */,
 				0110ABB627FDECD8006BFD84 /* NotificationViewController.swift */,
 				0110ABB827FDECDE006BFD84 /* TimerViewController.swift */,
+				01374A4327FFE91D006A6147 /* maskotBaca.gif */,
+				01374A4227FFE91D006A6147 /* masccotfin.gif */,
 				F91B9DCB2803C9C0000F5165 /* gifLoader.swift */,
 			);
 			path = Controller;
@@ -151,8 +153,6 @@
 		0110ABAA27FDEA4C006BFD84 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				01374A4227FFE91D006A6147 /* masccotfin.gif */,
-				01374A4327FFE91D006A6147 /* maskotBaca.gif */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
