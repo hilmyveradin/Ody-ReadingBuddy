@@ -142,33 +142,33 @@ class CoreDataManager {
   
   func insertTimer(currentTimer: Int16?) {
     let context = CoreDataManager.manager.managedContext
-    let timer = Timer(context: context)
+    let timer = TimerInterface(context: context)
     
     if let currentTimer = currentTimer {
       timer.currentTimer = currentTimer
     }
   }
   
-  func deleteTimer(timer: Timer) {
+  func deleteTimer(timer: TimerInterface) {
     let context = CoreDataManager.manager.managedContext
     context.delete(timer)
   }
   
-  func fetchTimer() -> Timer? {
-    let request = NSFetchRequest<Timer>(entityName: "Timer")
+  func fetchTimer() -> TimerInterface? {
+    let request = NSFetchRequest<TimerInterface>(entityName: "TimerInterface")
     let timer = try! CoreDataManager.manager.managedContext.fetch(request)
     return timer[0]
   }
   
   func updateTimer(currentTimer: Int16 ) {
     let context = CoreDataManager.manager.managedContext
-    let timer = Timer(context: context)
+    let timer = TimerInterface(context: context)
     timer.currentTimer += currentTimer
   }
   
   func resetTimer() {
     let context = CoreDataManager.manager.managedContext
-    let timer = Timer(context: context)
+    let timer = TimerInterface(context: context)
     timer.currentTimer = 0
   }
 }
