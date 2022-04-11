@@ -26,6 +26,7 @@
 		01374A4827FFEAE2006A6147 /* CustomGoalsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01374A4727FFEAE2006A6147 /* CustomGoalsViewController.swift */; };
 		01374A4A28000F73006A6147 /* DictionaryExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01374A4928000F73006A6147 /* DictionaryExtension.swift */; };
 		01374A4C280033BD006A6147 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01374A4B280033BD006A6147 /* CoreDataManager.swift */; };
+		019D68DF2803C50E004BE1CE /* OnBoarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019D68DE2803C50E004BE1CE /* OnBoarding.swift */; };
 		01B26DDA27FF35290004A93C /* MyGoalsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B26DD927FF35290004A93C /* MyGoalsViewController.swift */; };
 		01E878F32802AFDC0057A123 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E878F22802AFDC0057A123 /* DateManager.swift */; };
 		01E878F52802C1540057A123 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E878F42802C1540057A123 /* NotificationManager.swift */; };
@@ -53,6 +54,7 @@
 		01374A4727FFEAE2006A6147 /* CustomGoalsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomGoalsViewController.swift; sourceTree = "<group>"; };
 		01374A4928000F73006A6147 /* DictionaryExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryExtension.swift; sourceTree = "<group>"; };
 		01374A4B280033BD006A6147 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		019D68DE2803C50E004BE1CE /* OnBoarding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OnBoarding.swift; path = "../../../../../../Downloads/Ody-ReadingBuddy-OnBoarding/Ody-ReadingBuddy/Model/OnBoarding.swift"; sourceTree = "<group>"; };
 		01B26DD927FF35290004A93C /* MyGoalsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGoalsViewController.swift; sourceTree = "<group>"; };
 		01E878F22802AFDC0057A123 /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
 		01E878F42802C1540057A123 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 		0110ABA727FDEA30006BFD84 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				019D68DE2803C50E004BE1CE /* OnBoarding.swift */,
 				0110AB9827FDEA1F006BFD84 /* OdyModel.xcdatamodeld */,
 				01374A4B280033BD006A6147 /* CoreDataManager.swift */,
 				01E878F22802AFDC0057A123 /* DateManager.swift */,
@@ -230,13 +233,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F91B9DC627FFE2DE000F5165 /* maskotBaca.gif in Resources */,
 				0110ABAE27FDEAB9006BFD84 /* Timer.storyboard in Resources */,
 				01374A4427FFE91D006A6147 /* masccotfin.gif in Resources */,
 				01374A4527FFE91D006A6147 /* maskotBaca.gif in Resources */,
 				0110AB9F27FDEA20006BFD84 /* LaunchScreen.storyboard in Resources */,
 				0110ABAC27FDEAB2006BFD84 /* MyGoals.storyboard in Resources */,
-				F91B9DC827FFE330000F5165 /* masccotfin.gif in Resources */,
 				0110AB9C27FDEA20006BFD84 /* Assets.xcassets in Resources */,
 				0110ABB227FDEAD1006BFD84 /* OnBoarding.storyboard in Resources */,
 				0110AB9727FDEA1F006BFD84 /* Main.storyboard in Resources */,
@@ -256,8 +257,8 @@
 				01B26DDA27FF35290004A93C /* MyGoalsViewController.swift in Sources */,
 				0110AB9027FDEA1F006BFD84 /* AppDelegate.swift in Sources */,
 				0110ABB727FDECD8006BFD84 /* NotificationViewController.swift in Sources */,
-				E16FE5E227FFDDF5005FC8F7 /* OnBoarding.swift in Sources */,
 				0110ABBB27FDECE4006BFD84 /* OnBoardingViewController.swift in Sources */,
+				019D68DF2803C50E004BE1CE /* OnBoarding.swift in Sources */,
 				01E878F52802C1540057A123 /* NotificationManager.swift in Sources */,
 				0110ABB927FDECDE006BFD84 /* TimerViewController.swift in Sources */,
 				01374A4C280033BD006A6147 /* CoreDataManager.swift in Sources */,
