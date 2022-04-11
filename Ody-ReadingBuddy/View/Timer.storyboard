@@ -11,7 +11,7 @@
         <!--Timer-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="Y6W-OH-hqX" customClass="TimerViewController" customModule="Ody_ReadingBuddy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="Y6W-OH-hqX" customClass="mainViewController" customModule="Ody_ReadingBuddy" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -26,6 +26,9 @@
                                 <color key="tintColor" red="0.90588235294117647" green="0.32941176470588235" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Start Reading"/>
+                                <connections>
+                                    <segue destination="zNF-MY-e7S" kind="show" id="hEU-fq-3Gx"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xmW-8B-Ag8">
                                 <rect key="frame" x="186" y="574" width="42" height="21"/>
@@ -42,6 +45,7 @@
                     <navigationItem key="navigationItem" title="Timer" id="WGG-9I-BNQ"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="mainImageView" destination="yjI-B3-pGM" id="zHC-5r-B2v"/>
                         <segue destination="zNF-MY-e7S" kind="show" id="GMy-yy-Pwb"/>
                     </connections>
                 </viewController>
@@ -132,6 +136,9 @@
             <point key="canvasLocation" x="34.782608695652179" y="93.75"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="hEU-fq-3Gx"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="gobackward" catalog="system" width="121" height="128"/>
         <image name="pause" catalog="system" width="88" height="128"/>

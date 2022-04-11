@@ -12,7 +12,6 @@ import UIKit
 
 
 class TimerViewController: UIViewController {
-  
   @IBOutlet weak var timerLabel: UILabel!
   @IBOutlet weak var pauseButton: UIButton!
   @IBOutlet weak  var resetButton: UIButton!
@@ -23,6 +22,12 @@ class TimerViewController: UIViewController {
   var count:Int = 60
   var isCounting:Bool = false
   
+  override func viewDidLoad() {
+     super.viewDidLoad()
+     
+     let mascotGif = UIImage.gifImageWithName("maskotBaca")
+         imageView.image = mascotGif
+   }
   
   @IBAction func pauseButton(_ sender: Any){
     if (isCounting){
@@ -35,8 +40,8 @@ class TimerViewController: UIViewController {
       pauseButton.setImage(UIImage(named: "pause.png"), for: .normal)
       timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerCounter), userInfo: nil, repeats: true)
     }
-    
   }
+  
   @objc func timerCounter() -> Void {
     count = count - 1
     let time = secMinsHours(seconds: count)
@@ -47,7 +52,6 @@ class TimerViewController: UIViewController {
   func secMinsHours(seconds: Int) -> (Int, Int, Int){
     return ((seconds / 3600), ((seconds % 36000) / 60), ((seconds % 36000) % 60 ))
   }
-  
   func timeToString(hours:Int, minutes:Int, seconds:Int) -> String
   {
     var timeString = ""
