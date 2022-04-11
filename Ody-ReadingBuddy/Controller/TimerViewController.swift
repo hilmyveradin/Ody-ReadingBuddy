@@ -25,14 +25,26 @@ class TimerViewController: UIViewController {
     // Do any additional setup after loading the view.
   }
   @IBAction func startButton( sender: Any){
-    
+    timer.invalidate()
+    timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(TimerViewController.timerClass), userInfo: nil, repeats: True)
   }
   @IBAction func pauseButton( sender: Any){
+    timer.invalidate()
     
   }
   @IBAction func resetButton( sender: Any){
-    
+    timer.invalidate()
+    seconds = 60
+    timerLabel.text = String(seconds)
   }
-
+  
+  @objc func timerClass(){
+    seconds -= 1
+    timerLabel.text = String(seconds)
+    
+    if(seconds == 0){
+      timer.invalidate()
+    }
+  }
 
 }
