@@ -20,6 +20,20 @@
                                 <rect key="frame" x="87" y="346" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c1u-W9-taC">
+                                <rect key="frame" x="141" y="684" width="133" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.90588235294117647" green="0.32941176470588235" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Start Reading"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xmW-8B-Ag8">
+                                <rect key="frame" x="186" y="574" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -61,6 +75,13 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" image="pause" catalog="system" cornerStyle="capsule"/>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G4l-TD-jvA">
+                                <rect key="frame" x="51" y="666" width="67" height="67"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.90196078431372551" green="0.90196078431372551" blue="0.90980392156862744" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" image="gobackward" catalog="system" cornerStyle="capsule"/>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rq2-25-LR3">
                                 <rect key="frame" x="294" y="666" width="67" height="67"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -68,12 +89,12 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" image="stop.fill" catalog="system" cornerStyle="capsule"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G4l-TD-jvA">
-                                <rect key="frame" x="51" y="666" width="67" height="67"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g5A-kO-uk8">
+                                <rect key="frame" x="174" y="575" width="67" height="67"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" red="0.90196078431372551" green="0.90196078431372551" blue="0.90980392156862744" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.90588235289999997" green="0.3294117647" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" image="gobackward" catalog="system" cornerStyle="capsule"/>
+                                <buttonConfiguration key="configuration" style="filled" image="pause" catalog="system" cornerStyle="capsule"/>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="8Al-1i-dFd"/>
@@ -83,6 +104,7 @@
                     <connections>
                         <outlet property="pauseButton" destination="hR8-R4-IHM" id="arl-yG-pGR"/>
                         <outlet property="resetButton" destination="G4l-TD-jvA" id="xnh-1Y-A38"/>
+                        <outlet property="startButton" destination="g5A-kO-uk8" id="hdk-JQ-hhY"/>
                         <outlet property="timerLabel" destination="4er-qG-tKQ" id="cJo-rL-GvN"/>
                     </connections>
                 </viewController>
