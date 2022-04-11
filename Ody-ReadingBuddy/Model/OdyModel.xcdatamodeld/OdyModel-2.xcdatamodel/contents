@@ -16,13 +16,13 @@
     <entity name="Preferences" representedClassName="Preferences" syncable="YES" codeGenerationType="class">
         <attribute name="preferencesIndex" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>
-    <entity name="Timer" representedClassName="Timer" syncable="YES" codeGenerationType="class">
+    <entity name="TimerInterface" representedClassName="TimerInterface" syncable="YES" codeGenerationType="class">
         <attribute name="currentTimer" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>
     <elements>
-        <element name="MyGoals" positionX="-63" positionY="-18" width="128" height="104"/>
         <element name="Home" positionX="142.74609375" positionY="183.8515625" width="128" height="89"/>
-        <element name="Timer" positionX="36" positionY="99" width="128" height="44"/>
+        <element name="MyGoals" positionX="-63" positionY="-18" width="128" height="104"/>
         <element name="Preferences" positionX="45" positionY="108" width="128" height="44"/>
+        <element name="TimerInterface" positionX="36" positionY="99" width="128" height="44"/>
     </elements>
 </model>
