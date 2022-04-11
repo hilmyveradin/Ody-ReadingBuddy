@@ -230,11 +230,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F91B9DC627FFE2DE000F5165 /* maskotBaca.gif in Resources */,
 				0110ABAE27FDEAB9006BFD84 /* Timer.storyboard in Resources */,
 				01374A4427FFE91D006A6147 /* masccotfin.gif in Resources */,
 				01374A4527FFE91D006A6147 /* maskotBaca.gif in Resources */,
 				0110AB9F27FDEA20006BFD84 /* LaunchScreen.storyboard in Resources */,
 				0110ABAC27FDEAB2006BFD84 /* MyGoals.storyboard in Resources */,
+				F91B9DC827FFE330000F5165 /* masccotfin.gif in Resources */,
 				0110AB9C27FDEA20006BFD84 /* Assets.xcassets in Resources */,
 				0110ABB227FDEAD1006BFD84 /* OnBoarding.storyboard in Resources */,
 				0110AB9727FDEA1F006BFD84 /* Main.storyboard in Resources */,
