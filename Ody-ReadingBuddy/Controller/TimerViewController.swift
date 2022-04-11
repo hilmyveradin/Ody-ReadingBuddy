@@ -12,19 +12,25 @@ import UIKit
 
 
 class TimerViewController: UIViewController {
+  
   @IBOutlet weak var timerLabel: UILabel!
   @IBOutlet weak var startButton: UIButton!
   @IBOutlet weak var pauseButton: UIButton!
   @IBOutlet weak  var resetButton: UIButton!
+  @IBOutlet weak var imageView: UIImageView!
+  
   
   var timer = Timer()
   var seconds = 60
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    let maskotBaca = UIImage.gifImageWithData(<#T##data: Data##Data#>)
     // Do any additional setup after loading the view.
   }
   @IBAction func startButton( sender: Any){
+    
     timer.invalidate()
     timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(TimerViewController.timerClass), userInfo: nil, repeats: true)
   }
