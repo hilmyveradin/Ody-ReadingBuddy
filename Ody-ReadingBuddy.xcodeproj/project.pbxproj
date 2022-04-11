@@ -256,6 +256,7 @@
 				01B26DDA27FF35290004A93C /* MyGoalsViewController.swift in Sources */,
 				0110AB9027FDEA1F006BFD84 /* AppDelegate.swift in Sources */,
 				0110ABB727FDECD8006BFD84 /* NotificationViewController.swift in Sources */,
+				E16FE5E227FFDDF5005FC8F7 /* OnBoarding.swift in Sources */,
 				0110ABBB27FDECE4006BFD84 /* OnBoardingViewController.swift in Sources */,
 				01E878F52802C1540057A123 /* NotificationManager.swift in Sources */,
 				0110ABB927FDECDE006BFD84 /* TimerViewController.swift in Sources */,
