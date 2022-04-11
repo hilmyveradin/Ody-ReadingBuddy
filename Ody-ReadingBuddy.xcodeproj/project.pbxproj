@@ -21,12 +21,12 @@
 		0110ABB727FDECD8006BFD84 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0110ABB627FDECD8006BFD84 /* NotificationViewController.swift */; };
 		0110ABB927FDECDE006BFD84 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0110ABB827FDECDE006BFD84 /* TimerViewController.swift */; };
 		0110ABBB27FDECE4006BFD84 /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0110ABBA27FDECE4006BFD84 /* OnBoardingViewController.swift */; };
+		013212B52803CF34003F5742 /* OnBoarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013212B42803CF34003F5742 /* OnBoarding.swift */; };
 		01374A4427FFE91D006A6147 /* masccotfin.gif in Resources */ = {isa = PBXBuildFile; fileRef = 01374A4227FFE91D006A6147 /* masccotfin.gif */; };
 		01374A4527FFE91D006A6147 /* maskotBaca.gif in Resources */ = {isa = PBXBuildFile; fileRef = 01374A4327FFE91D006A6147 /* maskotBaca.gif */; };
 		01374A4827FFEAE2006A6147 /* CustomGoalsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01374A4727FFEAE2006A6147 /* CustomGoalsViewController.swift */; };
 		01374A4A28000F73006A6147 /* DictionaryExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01374A4928000F73006A6147 /* DictionaryExtension.swift */; };
 		01374A4C280033BD006A6147 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01374A4B280033BD006A6147 /* CoreDataManager.swift */; };
-		019D68DF2803C50E004BE1CE /* OnBoarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019D68DE2803C50E004BE1CE /* OnBoarding.swift */; };
 		01B26DDA27FF35290004A93C /* MyGoalsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B26DD927FF35290004A93C /* MyGoalsViewController.swift */; };
 		01E878F32802AFDC0057A123 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E878F22802AFDC0057A123 /* DateManager.swift */; };
 		01E878F52802C1540057A123 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E878F42802C1540057A123 /* NotificationManager.swift */; };
@@ -49,12 +49,12 @@
 		0110ABB627FDECD8006BFD84 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		0110ABB827FDECDE006BFD84 /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		0110ABBA27FDECE4006BFD84 /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
+		013212B42803CF34003F5742 /* OnBoarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoarding.swift; sourceTree = "<group>"; };
 		01374A4227FFE91D006A6147 /* masccotfin.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = masccotfin.gif; sourceTree = "<group>"; };
 		01374A4327FFE91D006A6147 /* maskotBaca.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = maskotBaca.gif; sourceTree = "<group>"; };
 		01374A4727FFEAE2006A6147 /* CustomGoalsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomGoalsViewController.swift; sourceTree = "<group>"; };
 		01374A4928000F73006A6147 /* DictionaryExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryExtension.swift; sourceTree = "<group>"; };
 		01374A4B280033BD006A6147 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
-		019D68DE2803C50E004BE1CE /* OnBoarding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OnBoarding.swift; path = "../../../../../../Downloads/Ody-ReadingBuddy-OnBoarding/Ody-ReadingBuddy/Model/OnBoarding.swift"; sourceTree = "<group>"; };
 		01B26DD927FF35290004A93C /* MyGoalsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGoalsViewController.swift; sourceTree = "<group>"; };
 		01E878F22802AFDC0057A123 /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
 		01E878F42802C1540057A123 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
@@ -115,11 +115,11 @@
 		0110ABA727FDEA30006BFD84 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				019D68DE2803C50E004BE1CE /* OnBoarding.swift */,
 				0110AB9827FDEA1F006BFD84 /* OdyModel.xcdatamodeld */,
 				01374A4B280033BD006A6147 /* CoreDataManager.swift */,
 				01E878F22802AFDC0057A123 /* DateManager.swift */,
 				01E878F42802C1540057A123 /* NotificationManager.swift */,
+				013212B42803CF34003F5742 /* OnBoarding.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -258,7 +258,7 @@
 				0110AB9027FDEA1F006BFD84 /* AppDelegate.swift in Sources */,
 				0110ABB727FDECD8006BFD84 /* NotificationViewController.swift in Sources */,
 				0110ABBB27FDECE4006BFD84 /* OnBoardingViewController.swift in Sources */,
-				019D68DF2803C50E004BE1CE /* OnBoarding.swift in Sources */,
+				013212B52803CF34003F5742 /* OnBoarding.swift in Sources */,
 				01E878F52802C1540057A123 /* NotificationManager.swift in Sources */,
 				0110ABB927FDECDE006BFD84 /* TimerViewController.swift in Sources */,
 				01374A4C280033BD006A6147 /* CoreDataManager.swift in Sources */,
