@@ -26,7 +26,7 @@ class TimerViewController: UIViewController {
   }
   @IBAction func startButton( sender: Any){
     timer.invalidate()
-    timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(TimerViewController.timerClass), userInfo: nil, repeats: True)
+    timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(TimerViewController.timerClass), userInfo: nil, repeats: true)
   }
   @IBAction func pauseButton( sender: Any){
     timer.invalidate()
