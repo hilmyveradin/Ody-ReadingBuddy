@@ -18,6 +18,8 @@ class mainViewController: UIViewController {
   @IBOutlet weak var daySpentUI: UILabel!
   @IBOutlet weak var timeSpentUI: UILabel!
   
+  var isGoalExist = true
+  
   override func viewDidLoad() {
     super.viewDidLoad()
       
@@ -34,25 +36,31 @@ class mainViewController: UIViewController {
   @IBAction func startReadingClicked(_ sender: UIButton) {
     //check goal setting
     //no goal
-    let alert = UIAlertController(title: "You haven't set any goal", message: "Set goal before you start. Go to 'Goals'?", preferredStyle: .alert)
+    if isGoalExist == true{
+      performSegue(withIdentifier: "toTimer", sender: self)
 
-    alert.addAction(UIAlertAction(title: "Yes", style: .cancel, handler: { action in
-      //open goals
+    }else{
+      let alert = UIAlertController(title: "You haven't set any goal", message: "Set goal before you start. Go to 'Goals'?", preferredStyle: .alert)
+
+      alert.addAction(UIAlertAction(title: "Yes", style: .cancel, handler: { action in
+        //open goals
+        
+        }))
       
-      }))
-    
-    alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
+      alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
 
-    self.present(alert, animated: true)
+      self.present(alert, animated: true)
+    }
+
   }
   
   func daysSpent(){
     //draw circle
-    let position = CGPoint(x: 135, y: 200)
+    let position = CGPoint(x: 128, y: 165)
     
     //create track layer
     let trackLayer = CAShapeLayer()
-    let circularPath = UIBezierPath(arcCenter: position, radius: 45, startAngle: -CGFloat.pi/2, endAngle: 2 * CGFloat.pi, clockwise: true)
+    let circularPath = UIBezierPath(arcCenter: position, radius: 40, startAngle: -CGFloat.pi/2, endAngle: 2 * CGFloat.pi, clockwise: true)
     trackLayer.path = circularPath.cgPath
     
     trackLayer.strokeColor = UIColor.systemGray5.cgColor
@@ -96,11 +104,11 @@ class mainViewController: UIViewController {
   
   func timeSpent(){
     //draw circle
-    let position = CGPoint(x: 290, y: 200)
+    let position = CGPoint(x: 263, y: 165)
     
     //create track layer
     let trackLayer = CAShapeLayer()
-    let circularPath = UIBezierPath(arcCenter: position, radius: 45, startAngle: -CGFloat.pi/2, endAngle: 2 * CGFloat.pi, clockwise: true)
+    let circularPath = UIBezierPath(arcCenter: position, radius: 40, startAngle: -CGFloat.pi/2, endAngle: 2 * CGFloat.pi, clockwise: true)
     trackLayer.path = circularPath.cgPath
     
     trackLayer.strokeColor = UIColor.systemGray5.cgColor

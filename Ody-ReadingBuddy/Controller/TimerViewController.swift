@@ -15,6 +15,7 @@ class TimerViewController: UIViewController {
   @IBOutlet weak var timerLabel: UILabel!
   @IBOutlet weak var pauseButton: UIButton!
   @IBOutlet weak  var resetButton: UIButton!
+  @IBOutlet weak var stopButton: UIButton!
   @IBOutlet weak var imageView: UIImageView!
   
   var seconds = 60
@@ -39,10 +40,13 @@ class TimerViewController: UIViewController {
       timer.invalidate()
       self.pauseButton.setImage(UIImage(systemName:"play.fill", compatibleWith: .none), for: .normal)
       self.resumeTapped = true
+      pauseButton.setTitleColor(.white, for: .normal)
+
     } else {
       runTimer()
       self.pauseButton.setImage(UIImage(systemName:"pause.fill", compatibleWith: .none), for: .normal)
       self.resumeTapped = false
+      pauseButton.setTitleColor(UIColor(named: "BoldOrange-Color", in: nil, compatibleWith: nil), for: .normal)
     }
   }
   
@@ -52,6 +56,11 @@ class TimerViewController: UIViewController {
     timerLabel.text = timeString(time: TimeInterval(seconds))
     isTimerRunning = false
     self.pauseButton.setImage(UIImage(systemName:"play.fill", compatibleWith: .none), for: .normal)
+  }
+  
+  @IBAction func stopButtonTapped(_ sender: UIButton){
+    timer.invalidate()
+    performSegue(withIdentifier: "toMain", sender: self)
   }
   
   @objc func updateTimer() {
