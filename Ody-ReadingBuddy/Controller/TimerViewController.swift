@@ -8,6 +8,46 @@
 import Foundation
 import UIKit
 
+/*
+ 1. fetch Mygoals.duration (durasi total) (ini yang bakal dipake seterusnya)
+ 
+ seandainya keluar/back dari aplikasi
+ -> hasil fetch dari mygoals.duration, disimpen di current timer
+ 
+ tiga variable:
+ totalDuration = fetch di mygoals.duration
+ currentDuration = fetch dari currentDuration
+ 
+ if currentDuration != 0 {
+ timer = totalDuration
+ } else
+ timer = currentTimer
+ 
+ Timer
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ totalDuration = 300
+ timer = 300
+ 
+ var totalDuration = MyGoals.duration
+ var currentTimer = TimeInterface.currentTimer
+ var Timer: Int!
+ 
+ if currentTimer != 0 {
+ Timer = currentTimer
+ } else {
+ Timer = totalDuration
+ }
+ 
+ *case keluar dari app*
+ func saveCurrentTimer(Timer) -> currentTimer
+ */
+
 
 
 

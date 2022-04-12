@@ -8,7 +8,7 @@
 import Foundation
 import CoreData
 
-class CoreDataManager {
+public class CoreDataManager {
   
   // MARK: - Properties
   
@@ -40,6 +40,8 @@ class CoreDataManager {
   }
   
   // MARK: - My Goals Functions
+  
+  // for interface juga, jadi butuh semuanya
   func insertGoal(goalsName: String?, startDate: Date?, endDate: Date?, isCustom: Bool?, duration: Date? ) {
     let context = CoreDataManager.manager.managedContext
     let goals = MyGoals(context: context)
@@ -58,8 +60,6 @@ class CoreDataManager {
       
       try? context.save()
     }
-    
-    
   }
   
   func deleteGoals(goals: MyGoals) {
@@ -67,6 +67,7 @@ class CoreDataManager {
     context.delete(goals)
   }
   
+  // ini buat set interface juga
   func fetchGoals() -> MyGoals? {
     let request = NSFetchRequest<MyGoals>(entityName: "MyGoals")
     let goals = try! CoreDataManager.manager.managedContext.fetch(request)
@@ -74,12 +75,16 @@ class CoreDataManager {
   }
   
   // MARK: - Preferences Functions
-  func insertPreferences(index: Int16?) {
+  
+  // buat ngobrol sama view controller lain, etc.
+  func insertPreferences(index: Int16?, hours: [Int]?) {
     let context = CoreDataManager.manager.managedContext
     let preference = Preferences(context: context)
     
-    if let index = index {
+    if let index = index,
+       let hours = hours {
       preference.preferencesIndex = index
+      preference.hours = hours
       try? context.save()
     }
   }
@@ -89,7 +94,7 @@ class CoreDataManager {
     context.delete(preferences)
   }
   
-  func fetchPreferences() -> Preferences? {
+  func fetchPreferences() -> Preferences {
     let request = NSFetchRequest<Preferences>(entityName: "Preferences")
     let preferences = try! CoreDataManager.manager.managedContext.fetch(request)
     return preferences[0]
@@ -166,9 +171,31 @@ class CoreDataManager {
     timer.currentTimer += currentTimer
   }
   
-  func resetTimer() {
+  //reset dialy
+  func resetTimerDialy() {
     let context = CoreDataManager.manager.managedContext
     let timer = TimerInterface(context: context)
     timer.currentTimer = 0
+  }
+  
+  // MARK: - Weekdays Function
+  func insertHours(weekArray: [Int]?) {
+    let context = CoreDataManager.manager.managedContext
+    let weekdays = Weekdays(context: context)
+    
+    if let weekArray = weekArray {
+      weekdays.weekdays = weekArray
+    }
+  }
+  
+  func deleteTimer(weekdays: Weekdays) {
+    let context = CoreDataManager.manager.managedContext
+    context.delete(weekdays)
+  }
+  
+  func fetchTimer() -> Weekdays? {
+    let request = NSFetchRequest<Weekdays>(entityName: "Weekdays")
+    let weekdays = try! CoreDataManager.manager.managedContext.fetch(request)
+    return weekdays[0]
   }
 }

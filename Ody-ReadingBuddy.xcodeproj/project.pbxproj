@@ -50,6 +50,7 @@
 		0110ABB827FDECDE006BFD84 /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		0110ABBA27FDECE4006BFD84 /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
 		013212B62803CF8D003F5742 /* OnBoarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoarding.swift; sourceTree = "<group>"; };
+		013212E428052B89003F5742 /* OdyModel-3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "OdyModel-3.xcdatamodel"; sourceTree = "<group>"; };
 		01374A4227FFE91D006A6147 /* masccotfin.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = masccotfin.gif; sourceTree = "<group>"; };
 		01374A4327FFE91D006A6147 /* maskotBaca.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = maskotBaca.gif; sourceTree = "<group>"; };
 		01374A4727FFEAE2006A6147 /* CustomGoalsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomGoalsViewController.swift; sourceTree = "<group>"; };
@@ -490,10 +491,11 @@
 		0110AB9827FDEA1F006BFD84 /* OdyModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				013212E428052B89003F5742 /* OdyModel-3.xcdatamodel */,
 				01E878F62802DEF30057A123 /* OdyModel-2.xcdatamodel */,
 				0110AB9927FDEA1F006BFD84 /* ReadingApp_Dummy.xcdatamodel */,
 			);
-			currentVersion = 01E878F62802DEF30057A123 /* OdyModel-2.xcdatamodel */;
+			currentVersion = 013212E428052B89003F5742 /* OdyModel-3.xcdatamodel */;
 			path = OdyModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

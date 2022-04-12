@@ -7,14 +7,18 @@
 
 import Foundation
 import NotificationCenter
+import CoreData
 
 class NotificationManager {
+  static let manager = NotificationManager()
+  
+  
   let userNotificationCenter = UNUserNotificationCenter.current()
   
   var months = [Int]()
   var days = [Int]()
   var hours = [Int]()
-  var weekdays = [1, 2, 3, 4, 5, 6, 7]
+  var weekdays = [Int]()
   var isCustomActivated = false
   
   func resetNotification() {
@@ -23,6 +27,15 @@ class NotificationManager {
     months = []
     days = []
     hours = []
+    weekdays = []
+  }
+  
+  public func getWeekdays(weekdays: [Int]) {
+    self.weekdays = weekdays
+  }
+  
+  public func getHours(hours: [Int]) {
+    self.hours = hours
   }
   
   func getNotification() {
@@ -40,6 +53,9 @@ class NotificationManager {
         notificationContent.attachments = [attachment]
       }
     }
+    /*
+     
+     */
     
     for month in self.months {
       for day in self.days {
@@ -97,7 +113,6 @@ class NotificationManager {
       }
     }
   }
-  
 }
 
 // MARK: - Unused Code
