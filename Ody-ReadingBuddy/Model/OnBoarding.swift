@@ -2,7 +2,7 @@
 //  OnBoarding.swift
 //  Ody-ReadingBuddy
 //
-//  Created by Levina Niolana on 08/04/22.
+//  Created by Hilmy Veradin on 11/04/22.
 //
 
 import Foundation

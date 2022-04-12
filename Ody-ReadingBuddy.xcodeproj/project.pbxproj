@@ -11,7 +11,6 @@
 		0110AB9227FDEA1F006BFD84 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0110AB9127FDEA1F006BFD84 /* SceneDelegate.swift */; };
 		0110AB9427FDEA1F006BFD84 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0110AB9327FDEA1F006BFD84 /* TabBarViewController.swift */; };
 		0110AB9727FDEA1F006BFD84 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0110AB9527FDEA1F006BFD84 /* Main.storyboard */; };
-		0110AB9A27FDEA1F006BFD84 /* OdyModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0110AB9827FDEA1F006BFD84 /* OdyModel.xcdatamodeld */; };
 		0110AB9C27FDEA20006BFD84 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0110AB9B27FDEA20006BFD84 /* Assets.xcassets */; };
 		0110AB9F27FDEA20006BFD84 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0110AB9D27FDEA20006BFD84 /* LaunchScreen.storyboard */; };
 		0110ABAC27FDEAB2006BFD84 /* MyGoals.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0110ABAB27FDEAB2006BFD84 /* MyGoals.storyboard */; };
@@ -21,6 +20,7 @@
 		0110ABB727FDECD8006BFD84 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0110ABB627FDECD8006BFD84 /* NotificationViewController.swift */; };
 		0110ABB927FDECDE006BFD84 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0110ABB827FDECDE006BFD84 /* TimerViewController.swift */; };
 		0110ABBB27FDECE4006BFD84 /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0110ABBA27FDECE4006BFD84 /* OnBoardingViewController.swift */; };
+		013212B72803CF8D003F5742 /* OnBoarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013212B62803CF8D003F5742 /* OnBoarding.swift */; };
 		01374A4427FFE91D006A6147 /* masccotfin.gif in Resources */ = {isa = PBXBuildFile; fileRef = 01374A4227FFE91D006A6147 /* masccotfin.gif */; };
 		01374A4527FFE91D006A6147 /* maskotBaca.gif in Resources */ = {isa = PBXBuildFile; fileRef = 01374A4327FFE91D006A6147 /* maskotBaca.gif */; };
 		01374A4827FFEAE2006A6147 /* CustomGoalsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01374A4727FFEAE2006A6147 /* CustomGoalsViewController.swift */; };
@@ -31,6 +31,7 @@
 		01E878F52802C1540057A123 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E878F42802C1540057A123 /* NotificationManager.swift */; };
 		F91B9DCC2803C9C0000F5165 /* gifLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91B9DCB2803C9C0000F5165 /* gifLoader.swift */; };
 		F94DE4A62804BE6400D5E333 /* mainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94DE4A52804BE6400D5E333 /* mainViewController.swift */; };
+		F9639F6D28051A6800DE4494 /* OdyModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F9639F6A28051A6800DE4494 /* OdyModel.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,7 +40,6 @@
 		0110AB9127FDEA1F006BFD84 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		0110AB9327FDEA1F006BFD84 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		0110AB9627FDEA1F006BFD84 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		0110AB9927FDEA1F006BFD84 /* ReadingApp_Dummy.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ReadingApp_Dummy.xcdatamodel; sourceTree = "<group>"; };
 		0110AB9B27FDEA20006BFD84 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0110AB9E27FDEA20006BFD84 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0110ABA027FDEA20006BFD84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -50,6 +50,7 @@
 		0110ABB627FDECD8006BFD84 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		0110ABB827FDECDE006BFD84 /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		0110ABBA27FDECE4006BFD84 /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
+		013212B62803CF8D003F5742 /* OnBoarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoarding.swift; sourceTree = "<group>"; };
 		01374A4227FFE91D006A6147 /* masccotfin.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = masccotfin.gif; sourceTree = "<group>"; };
 		01374A4327FFE91D006A6147 /* maskotBaca.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = maskotBaca.gif; sourceTree = "<group>"; };
 		01374A4727FFEAE2006A6147 /* CustomGoalsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomGoalsViewController.swift; sourceTree = "<group>"; };
@@ -58,9 +59,10 @@
 		01B26DD927FF35290004A93C /* MyGoalsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGoalsViewController.swift; sourceTree = "<group>"; };
 		01E878F22802AFDC0057A123 /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
 		01E878F42802C1540057A123 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
-		01E878F62802DEF30057A123 /* OdyModel-2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "OdyModel-2.xcdatamodel"; sourceTree = "<group>"; };
 		F91B9DCB2803C9C0000F5165 /* gifLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gifLoader.swift; sourceTree = "<group>"; };
 		F94DE4A52804BE6400D5E333 /* mainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mainViewController.swift; sourceTree = "<group>"; };
+		F9639F6B28051A6800DE4494 /* OdyModel-2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "OdyModel-2.xcdatamodel"; sourceTree = "<group>"; };
+		F9639F6C28051A6800DE4494 /* ReadingApp_Dummy.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ReadingApp_Dummy.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,10 +119,11 @@
 		0110ABA727FDEA30006BFD84 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				0110AB9827FDEA1F006BFD84 /* OdyModel.xcdatamodeld */,
+				F9639F6A28051A6800DE4494 /* OdyModel.xcdatamodeld */,
 				01374A4B280033BD006A6147 /* CoreDataManager.swift */,
 				01E878F22802AFDC0057A123 /* DateManager.swift */,
 				01E878F42802C1540057A123 /* NotificationManager.swift */,
+				013212B62803CF8D003F5742 /* OnBoarding.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -263,13 +266,14 @@
 				0110AB9027FDEA1F006BFD84 /* AppDelegate.swift in Sources */,
 				0110ABB727FDECD8006BFD84 /* NotificationViewController.swift in Sources */,
 				0110ABBB27FDECE4006BFD84 /* OnBoardingViewController.swift in Sources */,
+				013212B72803CF8D003F5742 /* OnBoarding.swift in Sources */,
 				01E878F52802C1540057A123 /* NotificationManager.swift in Sources */,
+				F9639F6D28051A6800DE4494 /* OdyModel.xcdatamodeld in Sources */,
 				0110ABB927FDECDE006BFD84 /* TimerViewController.swift in Sources */,
 				01374A4C280033BD006A6147 /* CoreDataManager.swift in Sources */,
 				01374A4827FFEAE2006A6147 /* CustomGoalsViewController.swift in Sources */,
 				01374A4A28000F73006A6147 /* DictionaryExtension.swift in Sources */,
 				0110AB9227FDEA1F006BFD84 /* SceneDelegate.swift in Sources */,
-				0110AB9A27FDEA1F006BFD84 /* OdyModel.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -491,14 +495,15 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		0110AB9827FDEA1F006BFD84 /* OdyModel.xcdatamodeld */ = {
+		F9639F6A28051A6800DE4494 /* OdyModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				01E878F62802DEF30057A123 /* OdyModel-2.xcdatamodel */,
-				0110AB9927FDEA1F006BFD84 /* ReadingApp_Dummy.xcdatamodel */,
+				F9639F6B28051A6800DE4494 /* OdyModel-2.xcdatamodel */,
+				F9639F6C28051A6800DE4494 /* ReadingApp_Dummy.xcdatamodel */,
 			);
-			currentVersion = 01E878F62802DEF30057A123 /* OdyModel-2.xcdatamodel */;
-			path = OdyModel.xcdatamodeld;
+			currentVersion = F9639F6B28051A6800DE4494 /* OdyModel-2.xcdatamodel */;
+			name = OdyModel.xcdatamodeld;
+			path = "../../../../../Downloads/Ody-ReadingBuddy-master/Ody-ReadingBuddy/Model/OdyModel.xcdatamodeld";
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
