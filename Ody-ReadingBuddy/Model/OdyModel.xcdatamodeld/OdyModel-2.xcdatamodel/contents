@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21D62" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19574" systemVersion="21D62" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Home" representedClassName="Home" syncable="YES" codeGenerationType="class">
         <attribute name="daysSpent" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="daysTarget" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
@@ -18,13 +18,21 @@
     <entity name="Preferences" representedClassName="Preferences" syncable="YES" codeGenerationType="class">
         <attribute name="preferencesIndex" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>
+<<<<<<< HEAD
+    <entity name="ReadingTimer" representedClassName="ReadingTimer" syncable="YES" codeGenerationType="class">
+=======
     <entity name="TimerInterface" representedClassName="TimerInterface" syncable="YES" codeGenerationType="class">
+>>>>>>> master
         <attribute name="currentTimer" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>
     <elements>
         <element name="Home" positionX="142.74609375" positionY="183.8515625" width="128" height="89"/>
         <element name="MyGoals" positionX="-63" positionY="-18" width="128" height="134"/>
         <element name="Preferences" positionX="45" positionY="108" width="128" height="44"/>
+<<<<<<< HEAD
+        <element name="ReadingTimer" positionX="36" positionY="99" width="128" height="44"/>
+=======
         <element name="TimerInterface" positionX="36" positionY="99" width="128" height="44"/>
+>>>>>>> master
     </elements>
 </model>
