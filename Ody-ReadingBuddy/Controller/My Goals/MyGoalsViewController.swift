@@ -28,8 +28,10 @@ class MyGoalsViewController: UIViewController {
   @IBOutlet weak var saveButton: UIButton!
   
   var isGoalsEmpty = true
+  var initialWeekday = [1, 2, 3, 4, 5, 6, 7]
+  var initialHours = [5, 12]
   
-  let notificationManager = NotificationManager()
+  let myGoals = MyGoals()
   
   //MARK: - Life Cycles
   
@@ -46,9 +48,20 @@ class MyGoalsViewController: UIViewController {
       let alert = UIAlertController(title: "Goals Saved", message: "You have sucessfully saved your goals" , preferredStyle: .alert)
       alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { _ in
         self.isGoalsEmpty = false
-        //      notificationManager.monthDateFormatter(startDate: startDate.date, endDate: endDate.date)
-        //      notificationManager.dayDateFormatter(startDate: startDate.date, endDate: endDate.date)
-        //      notificationManager.getNotification()
+        // Flow aplikasi
+        /*
+         1. masukin start date dan end date ke core data (ini pasti not null
+         2. fetch from core data (nah ini yang masalah)
+         
+         */
+        if let myGoals = CoreDataManager.manager.fetchGoals() {
+          NotificationManager.manager.monthDateFormatter(startDate: self.startDate.date, endDate:  self.endDate.date)
+          NotificationManager.manager.dayDateFormatter(startDate:  self.startDate.date, endDate:  self.endDate.date)
+          NotificationManager.manager.getWeekdays(weekdays: myGoals.weekdays ?? self.initialWeekday)
+          NotificationManager.manager.getHours(hours: myGoals.hours ?? self.initialHours)
+          NotificationManager.manager.getNotification()
+        }
+        
         self.setupView()
       }))
       self.present(alert, animated: true, completion: nil)
@@ -59,13 +72,13 @@ class MyGoalsViewController: UIViewController {
       alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
       alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { _ in
         self.isGoalsEmpty = true
-        //      notificationManager.resetNotification()
+        NotificationManager.manager.resetNotification()
         self.setupView()
         
       }))
       self.present(alert, animated: true, completion: nil)
     }
-
+    
   }
   
   @IBAction func switchCustomPressed(_ sender: UISwitch!) {
@@ -105,7 +118,7 @@ extension MyGoalsViewController {
     UIView4.layer.cornerRadius = 8
     saveButton.layer.cornerRadius = 8
   }
-
+  
 }
 
 // MARK: - Notification Helpers
@@ -113,7 +126,7 @@ extension MyGoalsViewController {
 extension MyGoalsViewController {
   func requestNotificationAuth() {
     let authOptions = UNAuthorizationOptions.init(arrayLiteral: .alert, .badge, .sound)
-    notificationManager.userNotificationCenter.requestAuthorization(options: authOptions) { (success, error) in
+    NotificationManager.manager.userNotificationCenter.requestAuthorization(options: authOptions) { (success, error) in
       if let error = error {
         print("Error: ", error)
       }
