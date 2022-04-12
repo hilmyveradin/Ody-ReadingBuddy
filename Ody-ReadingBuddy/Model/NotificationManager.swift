@@ -12,26 +12,52 @@ import CoreData
 class NotificationManager {
   static let manager = NotificationManager()
   
-  
   let userNotificationCenter = UNUserNotificationCenter.current()
   
   var months = [Int]()
   var days = [Int]()
-  var hours = [Int]()
-  var weekdays = [Int]()
-  var isCustomActivated = false
+  var hours = [5, 12]
+  
+  let totalDaysInMonths = [
+    1 : 31,
+    2 : 28,
+    3 : 31,
+    4 : 30,
+    5 : 31,
+    6 : 30,
+    7 : 31,
+    8 : 31,
+    9 : 30,
+    10 : 31,
+    11 : 30,
+    12 : 31
+  ]
+  
+  var totalDays: Int!
+  var newDictionary: NSMutableDictionary!
+  
+  func getFinalArray() {
+    /*
+     1. dapet interval months
+     2. dapet total days
+     3. check yang ada di months, matchingin sama totalDays
+     */
+    
+    //1.
+    months = [4, 5]
+    
+    //2.
+    for month in months {
+      totalDaysInMonths[month]
+    }
+  }
   
   func resetNotification() {
     userNotificationCenter.removeAllDeliveredNotifications()
     userNotificationCenter.removeAllPendingNotificationRequests()
     months = []
     days = []
-    hours = []
-    weekdays = []
-  }
-  
-  public func getWeekdays(weekdays: [Int]) {
-    self.weekdays = weekdays
+    hours = [5, 12]
   }
   
   public func getHours(hours: [Int]) {
@@ -39,46 +65,45 @@ class NotificationManager {
   }
   
   func getNotification() {
+    print("month: \(months)")
+    print("days: \(days)")
+    print("hours: \(hours)")
     let notificationContent = UNMutableNotificationContent()
     
     notificationContent.title = "It's time to read!"
     notificationContent.body = "Let's start reading. Your progress is waiting to be completed"
     notificationContent.badge = NSNumber(value: 1)
     
-    // add attachment
-    if let url = Bundle.main.url(forResource: "logoOdy", withExtension: "png") {
-      if let attachment = try? UNNotificationAttachment(identifier: "logoOdy",
-                                                        url: url,
-                                                        options: nil) {
-        notificationContent.attachments = [attachment]
-      }
-    }
-    /*
-     
-     */
+//    // add attachment
+//    if let url = Bundle.main.url(forResource: "logoOdy", withExtension: "png") {
+//      if let attachment = try? UNNotificationAttachment(identifier: "logoOdy",
+//                                                        url: url,
+//                                                        options: nil) {
+//        notificationContent.attachments = [attachment]
+//      }
+//    }
     
     for month in self.months {
       for day in self.days {
         for hour in self.hours {
-          for weekday in weekdays {
-            
-            var dateComponents = DateComponents()
-            
-            dateComponents.calendar = Calendar.current
-            dateComponents.month = month
-            dateComponents.day = day
-            dateComponents.hour = hour
-            dateComponents.weekday = weekday
-            let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
-            let request = UNNotificationRequest(identifier: "\(month),\(day),\(hour)",
-                                                content: notificationContent,
-                                                trigger: trigger)
-            userNotificationCenter.add(request) { (error) in
-              if let error = error {
-                print("Notification Error: ", error)
-              }
+          
+          var dateComponents = DateComponents()
+          
+          dateComponents.calendar = Calendar.current
+          dateComponents.month = month
+          dateComponents.day = day
+          dateComponents.hour = hour
+          let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+          let request = UNNotificationRequest(identifier: "\(month),\(day),\(hour)",
+                                              content: notificationContent,
+                                              trigger: trigger)
+          userNotificationCenter.add(request) { (error) in
+            if let error = error {
+              print("Notification Error: ", error)
             }
+            
           }
+          print("Notification added!")
         }
       }
     }
@@ -93,7 +118,7 @@ class NotificationManager {
   func dayDateFormatter(startDate: Date, endDate: Date) {
     let startcalendarDate = Calendar.current.dateComponents([.day], from: startDate)
     let endCalendarDate = Calendar.current.dateComponents([.day], from: endDate)
-    arrayOfMonths(startMonth: startcalendarDate.month, endMonth: endCalendarDate.month)
+    arrayOfDays(startDay: startcalendarDate.day, endDay: endCalendarDate.day)
   }
   
   private func arrayOfMonths(startMonth: Int?, endMonth: Int?) {
@@ -114,6 +139,8 @@ class NotificationManager {
     }
   }
 }
+
+
 
 // MARK: - Unused Code
 

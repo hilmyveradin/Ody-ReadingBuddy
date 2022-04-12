@@ -24,6 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
      increaseDaysSpent()
      }
      */
+//    NotificationManager.manager.resetNotification()
     return true
   }
 

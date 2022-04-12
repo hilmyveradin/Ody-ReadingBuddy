@@ -42,36 +42,48 @@ public class CoreDataManager {
   // MARK: - My Goals Functions
   
   // for interface juga, jadi butuh semuanya
-  func insertGoal(goalsName: String?, startDate: Date?, endDate: Date?, isCustom: Bool?, duration: Date? ) {
+  func insertGoal(goalsName: String?, startDate: Date?, endDate: Date?, duration: Date? ) {
     let context = CoreDataManager.manager.managedContext
     let goals = MyGoals(context: context)
     
     if let goalsName = goalsName,
        let startDate = startDate,
        let endDate = endDate,
-       let isCustom = isCustom,
        let duration = duration {
       
       goals.goalsName = goalsName
       goals.endDate = endDate
       goals.startDate = startDate
       goals.duration = duration
-      goals.isCustom = isCustom
       
       try? context.save()
     }
   }
   
-  func deleteGoals(goals: MyGoals) {
+  func deleteGoals() {
     let context = CoreDataManager.manager.managedContext
-    context.delete(goals)
+    let request = NSFetchRequest<MyGoals>(entityName: "MyGoals")
+    let goals = try! CoreDataManager.manager.managedContext.fetch(request)
+    
+    if goals.count > 0 {
+      context.delete(goals[0])
+      try? context.save()
+    }
   }
   
   // ini buat set interface juga
   func fetchGoals() -> MyGoals? {
     let request = NSFetchRequest<MyGoals>(entityName: "MyGoals")
     let goals = try! CoreDataManager.manager.managedContext.fetch(request)
-    return goals[0]
+    
+    if goals.count > 0 {
+      print("nubmer of goals: \(goals.count)")
+      return goals[0]
+
+    } else {
+      return nil
+    }
+    
   }
   
   // MARK: - Preferences Functions
@@ -89,19 +101,29 @@ public class CoreDataManager {
     }
   }
   
-  func deletePreferences(preferences: Preferences) {
+  func deletePreferences() {
     let context = CoreDataManager.manager.managedContext
-    context.delete(preferences)
-  }
-  
-  func fetchPreferences() -> Preferences {
     let request = NSFetchRequest<Preferences>(entityName: "Preferences")
     let preferences = try! CoreDataManager.manager.managedContext.fetch(request)
-    return preferences[0]
+    
+    if preferences.count > 0 {
+      context.delete(preferences[0])
+      try? context.save()
+    }
+  }
+  
+  func fetchPreferences() -> Preferences? {
+    let request = NSFetchRequest<Preferences>(entityName: "Preferences")
+    let preferences = try! CoreDataManager.manager.managedContext.fetch(request)
+    if preferences.count > 0 {
+      return preferences[0]
+    } else {
+      return nil
+    }
   }
   
   // MARK: - Home Functions
-  func insertHomeTarget(daysTarget: Int16?, timeTarget: Int16?) {
+  func insertHomeTarget(daysTarget: Int16?, timeTarget: Int64?) {
     let context = CoreDataManager.manager.managedContext
     let home = Home(context: context)
     
@@ -111,6 +133,7 @@ public class CoreDataManager {
       home.timeTarget = timeTarget
       home.daysTarget = 0
       home.timeTarget = 0
+      try? context.save()
     }
   }
   
@@ -118,29 +141,44 @@ public class CoreDataManager {
     let context = CoreDataManager.manager.managedContext
     let home = Home(context: context)
     home.daysSpent += 1
+    try? context.save()
   }
   
-  func increaseTimeSpent(addedTimeSpent: Int16) {
+  func increaseTimeSpent(addedTimeSpent: Int64) {
     let context = CoreDataManager.manager.managedContext
     let home = Home(context: context)
     home.timeSpent += addedTimeSpent
+    try? context.save()
   }
   
   func resetTimeSpent() {
     let context = CoreDataManager.manager.managedContext
     let home = Home(context: context)
     home.daysSpent = 0
+    try? context.save()
   }
   
-  func deleteHome(home: Home) {
+  func deleteHome() {
     let context = CoreDataManager.manager.managedContext
-    context.delete(home)
+    let request = NSFetchRequest<Home>(entityName: "Home")
+    let home = try! CoreDataManager.manager.managedContext.fetch(request)
+    
+    if home.count > 0 {
+      context.delete(home[0])
+      try? context.save()
+    }
   }
   
   func fetchHome() -> Home? {
     let request = NSFetchRequest<Home>(entityName: "Home")
     let home = try! CoreDataManager.manager.managedContext.fetch(request)
-    return home[0]
+    
+    if home.count > 0 {
+      return home[0]
+    } else {
+      return nil
+    }
+    
   }
   
   // MARK: - Timer Functions
@@ -151,24 +189,37 @@ public class CoreDataManager {
     
     if let currentTimer = currentTimer {
       timer.currentTimer = currentTimer
+      try? context.save()
     }
   }
   
-  func deleteTimer(timer: TimerInterface) {
+  func deleteTimer() {
     let context = CoreDataManager.manager.managedContext
-    context.delete(timer)
+    let request = NSFetchRequest<TimerInterface>(entityName: "TimerInterface")
+    let timer = try! CoreDataManager.manager.managedContext.fetch(request)
+    
+    if timer.count > 0 {
+      context.delete(timer[0])
+      try? context.save()
+    }
   }
   
   func fetchTimer() -> TimerInterface? {
     let request = NSFetchRequest<TimerInterface>(entityName: "TimerInterface")
     let timer = try! CoreDataManager.manager.managedContext.fetch(request)
-    return timer[0]
+    if timer.count > 0 {
+      return timer[0]
+    } else {
+      return nil
+    }
+    
   }
   
   func updateTimer(currentTimer: Int16 ) {
     let context = CoreDataManager.manager.managedContext
     let timer = TimerInterface(context: context)
     timer.currentTimer += currentTimer
+    try? context.save()
   }
   
   //reset dialy
@@ -176,26 +227,65 @@ public class CoreDataManager {
     let context = CoreDataManager.manager.managedContext
     let timer = TimerInterface(context: context)
     timer.currentTimer = 0
+    try? context.save()
   }
   
-  // MARK: - Weekdays Function
-  func insertHours(weekArray: [Int]?) {
+  // MARK: - isGoalsSelected
+  
+  func insertIsGoalsSelected(isGoalsExists: Bool?) {
     let context = CoreDataManager.manager.managedContext
-    let weekdays = Weekdays(context: context)
+    let isGoalsSelected = IsGoalsSelected(context: context)
     
-    if let weekArray = weekArray {
-      weekdays.weekdays = weekArray
+    if let isGoalsExists = isGoalsExists {
+      isGoalsSelected.isGoalsSelected = isGoalsExists
+      try? context.save()
+    }
+    
+  }
+  
+  func deleteIsGoalsSelected() {
+    let context = CoreDataManager.manager.managedContext
+    let request = NSFetchRequest<IsGoalsSelected>(entityName: "IsGoalsSelected")
+    let isGoalsSelected = try! CoreDataManager.manager.managedContext.fetch(request)
+    
+    if isGoalsSelected.count > 0 {
+      context.delete(isGoalsSelected[0])
+      try? context.save()
     }
   }
   
-  func deleteTimer(weekdays: Weekdays) {
-    let context = CoreDataManager.manager.managedContext
-    context.delete(weekdays)
+  // ini buat set interface juga
+  func fetchIsGoalsSelected() -> IsGoalsSelected? {
+    let request = NSFetchRequest<IsGoalsSelected>(entityName: "IsGoalsSelected")
+    let isGoalsSelected = try! CoreDataManager.manager.managedContext.fetch(request)
+    if isGoalsSelected.count > 0 {
+      print("nubmer of isgoalsselected: \(isGoalsSelected.count)")
+      return isGoalsSelected[0]
+    } else {
+      return nil
+    }
+    
   }
   
-  func fetchTimer() -> Weekdays? {
-    let request = NSFetchRequest<Weekdays>(entityName: "Weekdays")
-    let weekdays = try! CoreDataManager.manager.managedContext.fetch(request)
-    return weekdays[0]
-  }
+//  // MARK: - Weekdays Function
+//  func insertHours(weekArray: [Int]?) {
+//    let context = CoreDataManager.manager.managedContext
+//    let weekdays = Weekdays(context: context)
+//
+//    if let weekArray = weekArray {
+//      weekdays.weekdays = weekArray
+//    }
+//  }
+//
+//  func deleteTimer(weekdays: Weekdays) {
+//    let context = CoreDataManager.manager.managedContext
+//    context.delete(weekdays)
+//  }
+//
+//  func fetchTimer() -> Weekdays? {
+//    let request = NSFetchRequest<Weekdays>(entityName: "Weekdays")
+//    let weekdays = try! CoreDataManager.manager.managedContext.fetch(request)
+//    return weekdays[0]
+//  }
+//}
 }

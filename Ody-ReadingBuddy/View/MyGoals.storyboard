@@ -167,7 +167,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LVg-Oz-orl">
-                                <rect key="frame" x="16" y="376" width="358" height="50"/>
+                                <rect key="frame" x="16" y="306" width="358" height="50"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Duration Goal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eRd-Hp-vgX">
                                         <rect key="frame" x="8" y="0.0" width="105" height="50"/>
@@ -234,7 +234,7 @@
                             <constraint firstItem="LVg-Oz-orl" firstAttribute="leading" secondItem="Hd7-eT-z0f" secondAttribute="leading" constant="16" id="M1b-Yq-Yfl"/>
                             <constraint firstItem="IgK-Tc-Pgv" firstAttribute="top" secondItem="Hd7-eT-z0f" secondAttribute="top" constant="98" id="MjO-cX-JA8"/>
                             <constraint firstItem="Hd7-eT-z0f" firstAttribute="trailing" secondItem="D5I-XV-qjA" secondAttribute="trailing" constant="45" id="WlN-Pw-LO0"/>
-                            <constraint firstItem="LVg-Oz-orl" firstAttribute="top" secondItem="Hd7-eT-z0f" secondAttribute="top" constant="288" id="cAS-H2-KDY"/>
+                            <constraint firstItem="LVg-Oz-orl" firstAttribute="top" secondItem="Hd7-eT-z0f" secondAttribute="top" constant="218" id="cAS-H2-KDY"/>
                             <constraint firstItem="TyC-Wr-VWe" firstAttribute="leading" secondItem="Hd7-eT-z0f" secondAttribute="leading" id="e8Y-kg-v16"/>
                             <constraint firstItem="D5I-XV-qjA" firstAttribute="centerX" secondItem="LbU-cy-S0T" secondAttribute="centerX" id="f0g-nh-ahp"/>
                             <constraint firstItem="DOD-Ka-63B" firstAttribute="top" secondItem="Hd7-eT-z0f" secondAttribute="top" constant="37" id="kza-QR-0fS"/>
@@ -266,7 +266,7 @@
                         <outlet property="startDate" destination="Do0-bc-TuS" id="ilu-Bu-BtB"/>
                         <outlet property="subOneUIView2" destination="PlA-Wk-Gsq" id="zNE-8t-5L2"/>
                         <outlet property="subTwoUIView2" destination="jgn-jE-PLJ" id="ihs-QO-kwf"/>
-                        <segue destination="YG0-hH-2jm" kind="show" identifier="goalsToCustom" id="rwT-dZ-s0I"/>
+                        <segue destination="YG0-hH-2jm" kind="show" id="g7g-c6-bUF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K1n-CN-lUY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
