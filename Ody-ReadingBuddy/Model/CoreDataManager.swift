@@ -20,7 +20,7 @@ public class CoreDataManager {
   }()
   
   private lazy var persistentContainer: NSPersistentContainer = {
-    let container = NSPersistentContainer(name: "OdyModel")
+    let container = NSPersistentContainer(name: "DataModel")
     container.loadPersistentStores { _, error in
       if let error = error as NSError? {
         print("Unresolved error \(error), \(error.userInfo)")

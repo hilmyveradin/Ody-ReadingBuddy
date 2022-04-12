@@ -44,7 +44,6 @@ class MyGoalsViewController: UIViewController {
     print(isGoalsExists)
     setupView()
     requestNotificationAuth()
-    navigationItem.backBarButtonItem =
   }
   
   override func viewWillAppear(_ animated: Bool) {
