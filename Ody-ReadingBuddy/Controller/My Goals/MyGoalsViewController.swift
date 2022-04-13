@@ -42,15 +42,16 @@ class MyGoalsViewController: UIViewController {
   
   //MARK: - Life Cycles
   
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    fetchInLoad()
-    setupView()
-    requestNotificationAuth()
-  }
+//  override func viewDidLoad() {
+//    super.viewDidLoad()
+//
+//  }
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
+    fetchInLoad()
+    setupView()
+    requestNotificationAuth()
   }
   
   //MARK: - Button Actions
@@ -68,6 +69,7 @@ class MyGoalsViewController: UIViewController {
       let alert = UIAlertController(title: "Goals Saved", message: "You have sucessfully saved your goals" , preferredStyle: .alert)
       alert.view.tintColor = UIColor.init(named: "BoldOrange-Color")
       alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { [self] _ in
+        self.isGoalsExists = true
         self.saveGoals()
         self.setupView()
       }))
@@ -79,6 +81,7 @@ class MyGoalsViewController: UIViewController {
       alert.view.tintColor = UIColor.init(named: "BoldOrange-Color")
       alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
       alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { _ in
+        self.isGoalsExists = false
         self.resetGoals()
         self.setupView()
       }))
@@ -121,7 +124,7 @@ class MyGoalsViewController: UIViewController {
   }
   
   private func resetGoals() {
-    self.isGoalsExists = false
+//    self.isGoalsExists = false
     /*
      1. delete home entitiy
      2. delete myGoals entitiy
