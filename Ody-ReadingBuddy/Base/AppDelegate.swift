@@ -25,6 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
      }
      */
 //    NotificationManager.manager.resetNotification()
+    NewDayManager.manager.compareDay()
+    CoreDataManager.manager.deleteHome()
     return true
   }
 

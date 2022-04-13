@@ -126,10 +126,10 @@ extension NotificationViewController {
   private func setupView() {
     outletInit()
     if isGoalsExists == false {
-      print("notification = false goals exists")
-      prefView.cellForRow(at: IndexPath.init(row: 0, section: 0))?.accessoryType = .checkmark
+      print("Notification = Goal don't exists")
+      prefView.cellForRow(at: IndexPath.init(row: 0, section: 1))?.accessoryType = .checkmark
     } else {
-      prefView.cellForRow(at: IndexPath.init(row: savedIndex, section: 0))?.accessoryType = .checkmark
+      prefView.cellForRow(at: IndexPath.init(row: savedIndex, section: 1))?.accessoryType = .checkmark
     }
   }
   
@@ -142,6 +142,10 @@ extension NotificationViewController {
 // MARK: - Table checklist
 
 extension NotificationViewController: UITableViewDelegate, UITableViewDataSource {
+  
+  func numberOfSections(in tableView: UITableView) -> Int {
+    return 1
+  }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return periodArray.count

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		01057A162806450900AB63E6 /* NewDayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01057A152806450900AB63E6 /* NewDayManager.swift */; };
 		0110AB9027FDEA1F006BFD84 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0110AB8F27FDEA1F006BFD84 /* AppDelegate.swift */; };
 		0110AB9227FDEA1F006BFD84 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0110AB9127FDEA1F006BFD84 /* SceneDelegate.swift */; };
 		0110AB9427FDEA1F006BFD84 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0110AB9327FDEA1F006BFD84 /* TabBarViewController.swift */; };
@@ -30,11 +31,12 @@
 		01E878F32802AFDC0057A123 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E878F22802AFDC0057A123 /* DateManager.swift */; };
 		01E878F52802C1540057A123 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E878F42802C1540057A123 /* NotificationManager.swift */; };
 		01F0653A2805DB5300DC6730 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 01F065382805DB5300DC6730 /* DataModel.xcdatamodeld */; };
-		F91B9DCC2803C9C0000F5165 /* gifLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91B9DCB2803C9C0000F5165 /* gifLoader.swift */; };
-		F94DE4A62804BE6400D5E333 /* mainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94DE4A52804BE6400D5E333 /* mainViewController.swift */; };
+		F91B9DCC2803C9C0000F5165 /* GifLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91B9DCB2803C9C0000F5165 /* GifLoader.swift */; };
+		F94DE4A62804BE6400D5E333 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94DE4A52804BE6400D5E333 /* MainViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		01057A152806450900AB63E6 /* NewDayManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDayManager.swift; sourceTree = "<group>"; };
 		0110AB8C27FDEA1F006BFD84 /* Ody-ReadingBuddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ody-ReadingBuddy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0110AB8F27FDEA1F006BFD84 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0110AB9127FDEA1F006BFD84 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -60,8 +62,8 @@
 		01E878F22802AFDC0057A123 /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
 		01E878F42802C1540057A123 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		01F065392805DB5300DC6730 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
-		F91B9DCB2803C9C0000F5165 /* gifLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gifLoader.swift; sourceTree = "<group>"; };
-		F94DE4A52804BE6400D5E333 /* mainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mainViewController.swift; sourceTree = "<group>"; };
+		F91B9DCB2803C9C0000F5165 /* GifLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifLoader.swift; sourceTree = "<group>"; };
+		F94DE4A52804BE6400D5E333 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				01F065382805DB5300DC6730 /* DataModel.xcdatamodeld */,
+				01057A152806450900AB63E6 /* NewDayManager.swift */,
 				01374A4B280033BD006A6147 /* CoreDataManager.swift */,
 				01E878F22802AFDC0057A123 /* DateManager.swift */,
 				01E878F42802C1540057A123 /* NotificationManager.swift */,
@@ -147,10 +150,10 @@
 				0110AB9327FDEA1F006BFD84 /* TabBarViewController.swift */,
 				0110ABB627FDECD8006BFD84 /* NotificationViewController.swift */,
 				0110ABB827FDECDE006BFD84 /* TimerViewController.swift */,
-				F94DE4A52804BE6400D5E333 /* mainViewController.swift */,
+				F94DE4A52804BE6400D5E333 /* MainViewController.swift */,
 				01374A4327FFE91D006A6147 /* maskotBaca.gif */,
 				01374A4227FFE91D006A6147 /* masccotfin.gif */,
-				F91B9DCB2803C9C0000F5165 /* gifLoader.swift */,
+				F91B9DCB2803C9C0000F5165 /* GifLoader.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -258,8 +261,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				0110AB9427FDEA1F006BFD84 /* TabBarViewController.swift in Sources */,
-				F91B9DCC2803C9C0000F5165 /* gifLoader.swift in Sources */,
-				F94DE4A62804BE6400D5E333 /* mainViewController.swift in Sources */,
+				F91B9DCC2803C9C0000F5165 /* GifLoader.swift in Sources */,
+				01057A162806450900AB63E6 /* NewDayManager.swift in Sources */,
+				F94DE4A62804BE6400D5E333 /* MainViewController.swift in Sources */,
 				01E878F32802AFDC0057A123 /* DateManager.swift in Sources */,
 				01F0653A2805DB5300DC6730 /* DataModel.xcdatamodeld in Sources */,
 				01B26DDA27FF35290004A93C /* MyGoalsViewController.swift in Sources */,

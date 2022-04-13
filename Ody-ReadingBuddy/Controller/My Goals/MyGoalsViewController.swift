@@ -27,21 +27,22 @@ class MyGoalsViewController: UIViewController {
   @IBOutlet weak var durationGoal: UIDatePicker!
   @IBOutlet weak var saveButton: UIButton!
   
+  // Core Data Properties
+  var myGoals : MyGoals?
+  var isGoalsSelected : IsGoalsSelected?
+  var home : Home?
+  
   var isGoalsExists = false
   var initialWeekday = [1, 2, 3, 4, 5, 6, 7]
   var initialHours = [5, 12]
   
-  var myGoals : MyGoals?
-  let myGoalsisi = MyGoals()
-  var isGoalsSelected : IsGoalsSelected?
-  var home : Home?
+  
   
   //MARK: - Life Cycles
   
   override func viewDidLoad() {
     super.viewDidLoad()
     fetchInLoad()
-    print(isGoalsExists)
     setupView()
     requestNotificationAuth()
   }
@@ -82,17 +83,21 @@ class MyGoalsViewController: UIViewController {
      1. masukin semua hal ke MyGoals Entitiy
      2. masukin semua hal ke Home
      3. masukin "true" ke isGoalsSelected
-     4. get notifications
+     4. get currentDay (for starting)
+     5. get notifications
      */
     //1
     CoreDataManager.manager.insertGoal(goalsName: self.goalsText.text!, startDate: self.startDate.date, endDate: self.endDate.date, duration: self.durationGoal.date)
     //2
     let totalDays = self.getNumberOfDays()
     let totalSeconds = getNumberOfDuration()
+    print("My Goals: days: \(totalDays), seconds: \(totalSeconds)")
     CoreDataManager.manager.insertHomeTarget(daysTarget: totalDays, timeTarget: totalSeconds)
     //3
     CoreDataManager.manager.insertIsGoalsSelected(isGoalsExists: true)
     //4
+    getCurrentDay(startDate: startDate.date)
+    //5
     NotificationManager.manager.monthDateFormatter(startDate: startDate.date, endDate: endDate.date)
     NotificationManager.manager.dayDateFormatter(startDate: startDate.date, endDate: endDate.date)
     NotificationManager.manager.getNotification()
@@ -105,7 +110,11 @@ class MyGoalsViewController: UIViewController {
      1. delete home entitiy
      2. delete myGoals entitiy
      3. delete isGoalsSelected
-     4. delete all notifications
+     4. delete timer
+     5. delete preferences
+     7. delete current Day
+     6. reset notifications
+     
      */
     //1
     CoreDataManager.manager.deleteHome()
@@ -114,7 +123,21 @@ class MyGoalsViewController: UIViewController {
     //3
     CoreDataManager.manager.deleteIsGoalsSelected()
     //4
+    CoreDataManager.manager.deleteTimer()
+    //5
+    CoreDataManager.manager.deletePreferences()
+    //6
+    CoreDataManager.manager.deleteCurrentDay()
+    //6
     NotificationManager.manager.resetNotification()
+  }
+  
+  private func getCurrentDay(startDate: Date) {
+    let currentMonth = Calendar.current.dateComponents([.month], from: startDate)
+    let currentDay = Calendar.current.dateComponents([.day], from: startDate)
+    let countDayandMonth = (currentMonth.month! * 30) + (currentDay.day!)
+    
+    CoreDataManager.manager.insertCurrentDay(currentDay: Int64(countDayandMonth))
   }
   
   func fetchInLoad() {
@@ -129,16 +152,15 @@ class MyGoalsViewController: UIViewController {
       self.startDate.date = tempGoals.startDate!
       self.endDate.date = tempGoals.endDate!
       self.durationGoal.date = tempGoals.duration!
-      print("temp goals fetch suceed!")
+      print("MyGoals: Temp goals fetch suceed!")
     }
     //2
     let tempIsGoalsSelected = CoreDataManager.manager.fetchIsGoalsSelected()
     if let tempIsGoalsSelected = tempIsGoalsSelected {
       self.isGoalsExists = tempIsGoalsSelected.isGoalsSelected
-      print("isSelected fetch succeed!")
-      print("is goals exits: \(isGoalsExists)")
+      print("MyGoals: isSelected fetch succeed! is goals: \(isGoalsExists)")
     }
-
+    
   }
   
   
@@ -148,8 +170,12 @@ class MyGoalsViewController: UIViewController {
   }
   
   func getNumberOfDuration() -> Int64 {
-    let numberOfSeconds = Calendar.current.dateComponents([.second], from: durationGoal.date)
-    return Int64(numberOfSeconds.second!)
+    let numberOfHour = Calendar.current.dateComponents([.hour], from: durationGoal.date)
+    let numberOfMinutes = Calendar.current.dateComponents([.minute], from: durationGoal.date)
+    let hoursInSeconds = (numberOfHour.hour ?? 0) * 3600
+    let minutesInSeconds = (numberOfMinutes.minute ?? 0) * 60
+    let finalSeconds = hoursInSeconds + minutesInSeconds
+    return Int64(finalSeconds)
   }
 }
 

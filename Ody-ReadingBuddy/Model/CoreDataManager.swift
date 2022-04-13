@@ -77,9 +77,9 @@ public class CoreDataManager {
     let goals = try! CoreDataManager.manager.managedContext.fetch(request)
     
     if goals.count > 0 {
-      print("nubmer of goals: \(goals.count)")
+      print("Manager: Fetch Goals, of Goals: \(goals.count)")
       return goals[0]
-
+      
     } else {
       return nil
     }
@@ -116,6 +116,7 @@ public class CoreDataManager {
     let request = NSFetchRequest<Preferences>(entityName: "Preferences")
     let preferences = try! CoreDataManager.manager.managedContext.fetch(request)
     if preferences.count > 0 {
+      print("Manager: Fetch Preference, of preference: \(preferences.count)")
       return preferences[0]
     } else {
       return nil
@@ -131,8 +132,8 @@ public class CoreDataManager {
        let timeTarget = timeTarget {
       home.daysTarget = daysTarget
       home.timeTarget = timeTarget
-      home.daysTarget = 0
-      home.timeTarget = 0
+      home.daysSpent = 0
+      home.timeSpent = 0
       try? context.save()
     }
   }
@@ -146,9 +147,13 @@ public class CoreDataManager {
   
   func increaseTimeSpent(addedTimeSpent: Int64) {
     let context = CoreDataManager.manager.managedContext
-    let home = Home(context: context)
-    home.timeSpent += addedTimeSpent
-    try? context.save()
+    let fetchedHome = fetchHome()
+    
+    if let fetchedHome = fetchedHome {
+      fetchedHome.timeSpent = addedTimeSpent
+      try? context.save()
+    }
+
   }
   
   func resetTimeSpent() {
@@ -164,6 +169,8 @@ public class CoreDataManager {
     let home = try! CoreDataManager.manager.managedContext.fetch(request)
     
     if home.count > 0 {
+      print("Manager: delete Home, of Home: \(home.count)")
+      print(home[0])
       context.delete(home[0])
       try? context.save()
     }
@@ -183,13 +190,20 @@ public class CoreDataManager {
   
   // MARK: - Timer Functions
   
-  func insertTimer(currentTimer: Int16?) {
+  func insertTimer(currentTimer: Int64?) {
     let context = CoreDataManager.manager.managedContext
     let timer = TimerInterface(context: context)
     
     if let currentTimer = currentTimer {
+      print("timer: before update \(timer.currentTimer)")
       timer.currentTimer = currentTimer
-      try? context.save()
+      print("Core Data Manager : timer after update : \(timer.currentTimer) ")
+      do {
+        try context.save()
+      } catch {
+        print("insert timer: save failed")
+      }
+      
     }
   }
   
@@ -199,6 +213,7 @@ public class CoreDataManager {
     let timer = try! CoreDataManager.manager.managedContext.fetch(request)
     
     if timer.count > 0 {
+      print("Manager: Fetch Timer, of Timer: \(timer.count)")
       context.delete(timer[0])
       try? context.save()
     }
@@ -215,11 +230,18 @@ public class CoreDataManager {
     
   }
   
-  func updateTimer(currentTimer: Int16 ) {
+  func updateTimer(currentTimer: Int64) {
     let context = CoreDataManager.manager.managedContext
     let timer = TimerInterface(context: context)
+    print("timer: before update \(timer.currentTimer)")
     timer.currentTimer += currentTimer
-    try? context.save()
+    print("Core Data Manager : timer after update : \(timer.currentTimer) ")
+    
+    do {
+      try context.save()
+    } catch {
+      print("update timer: failed")
+    }
   }
   
   //reset dialy
@@ -259,7 +281,7 @@ public class CoreDataManager {
     let request = NSFetchRequest<IsGoalsSelected>(entityName: "IsGoalsSelected")
     let isGoalsSelected = try! CoreDataManager.manager.managedContext.fetch(request)
     if isGoalsSelected.count > 0 {
-      print("nubmer of isgoalsselected: \(isGoalsSelected.count)")
+      print("Manager: Fetch GoalsSelected, of ISGoalsSelected: \(isGoalsSelected.count)")
       return isGoalsSelected[0]
     } else {
       return nil
@@ -267,25 +289,61 @@ public class CoreDataManager {
     
   }
   
-//  // MARK: - Weekdays Function
-//  func insertHours(weekArray: [Int]?) {
-//    let context = CoreDataManager.manager.managedContext
-//    let weekdays = Weekdays(context: context)
-//
-//    if let weekArray = weekArray {
-//      weekdays.weekdays = weekArray
-//    }
-//  }
-//
-//  func deleteTimer(weekdays: Weekdays) {
-//    let context = CoreDataManager.manager.managedContext
-//    context.delete(weekdays)
-//  }
-//
-//  func fetchTimer() -> Weekdays? {
-//    let request = NSFetchRequest<Weekdays>(entityName: "Weekdays")
-//    let weekdays = try! CoreDataManager.manager.managedContext.fetch(request)
-//    return weekdays[0]
-//  }
-//}
+  // MARK: - DayCount
+  
+  func insertCurrentDay(currentDay: Int64?) {
+    let context = CoreDataManager.manager.managedContext
+    let day = CurrentDay(context: context)
+    
+    if let currentDay = currentDay {
+      day.currentDay = currentDay
+      try? context.save()
+    }
+  }
+  
+  func deleteCurrentDay() {
+        let context = CoreDataManager.manager.managedContext
+        let request = NSFetchRequest<CurrentDay>(entityName: "CurrentDay")
+        let day = try! CoreDataManager.manager.managedContext.fetch(request)
+
+        if day.count > 0 {
+          context.delete(day[0])
+          try? context.save()
+        }
+  }
+
+  func fetchDayCount() -> CurrentDay? {
+        let request = NSFetchRequest<CurrentDay>(entityName: "CurrentDay")
+        let day = try! CoreDataManager.manager.managedContext.fetch(request)
+        if day.count > 0 {
+          print("Manager: Fetch Current Day, of currentDay: \(day.count)")
+          return day[0]
+        } else {
+          return nil
+        }
+  }
+
+
+
+  //  // MARK: - Weekdays Function
+  //  func insertHours(weekArray: [Int]?) {
+  //    let context = CoreDataManager.manager.managedContext
+  //    let weekdays = Weekdays(context: context)
+  //
+  //    if let weekArray = weekArray {
+  //      weekdays.weekdays = weekArray
+  //    }
+  //  }
+  //
+  //  func deleteTimer(weekdays: Weekdays) {
+  //    let context = CoreDataManager.manager.managedContext
+  //    context.delete(weekdays)
+  //  }
+  //
+  //  func fetchTimer() -> Weekdays? {
+  //    let request = NSFetchRequest<Weekdays>(entityName: "Weekdays")
+  //    let weekdays = try! CoreDataManager.manager.managedContext.fetch(request)
+  //    return weekdays[0]
+  //  }
+  //}
 }
