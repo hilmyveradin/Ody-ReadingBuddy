@@ -25,18 +25,16 @@ class NotificationViewController: UIViewController {
     timePeriod(periodName: "Afternoon", periodStart: "12.00", periodFinish: "15.59", periodState: false),
     timePeriod(periodName: "Evening", periodStart: "16.00", periodFinish: "19.59", periodState: false),
     timePeriod(periodName: "Night", periodStart: "20.00", periodFinish: "22.59", periodState: false),
-    //    timePeriod(periodName: "Midnight", periodStart: "23.00", periodFinish: "04.59", periodState: false)
   ]
-  
-  var selectedHours : [Int]!
-  var savedIndex = 0
   var selectedItemDict = [
     0 : [5, 12],
     1 : [12, 16],
     2 : [16, 20],
     3 : [20, 24],
   ]
-  
+  var selectedHours : [Int]!
+  var savedIndex = 0
+
   // MARK: - Life Cycles
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -66,12 +64,12 @@ class NotificationViewController: UIViewController {
       alert.addAction(UIAlertAction(title: "Ok", style: .default))
       self.present(alert, animated: true, completion: nil)
     }
-    
-    
   }
-  
-  // MARK: - Action Helpers
-  
+
+}
+
+// MARK: - Core Data Helpers
+extension NotificationViewController {
   private func resetNotification() {
     /*
      1. save index preference and hours preferences
@@ -105,39 +103,37 @@ class NotificationViewController: UIViewController {
     // 1
     CoreDataManager.manager.insertPreferences(index: Int16(savedIndex), hours: selectedHours)
   }
-  
-  
 }
 
-// MARK: - Setup Views
+// MARK: - Core Data Helpers
 extension NotificationViewController {
-  
   func fetchInLoad() {
     /*
      1. fetch myPreferences (for a placeholder)
      2. fetch isGoalsSelected (for making "blocker" appears/not)
      */
+    
     // 1
     let myPreferences = CoreDataManager.manager.fetchPreferences()
     if let myPreferences = myPreferences {
       selectedHours = myPreferences.hours
       savedIndex = Int(myPreferences.preferencesIndex)
     }
-    
-    
     //2
     let tempIsGoalsSelected = CoreDataManager.manager.fetchIsGoalsSelected()
     if let tempIsGoalsSelected = tempIsGoalsSelected {
       isGoalsExists = tempIsGoalsSelected.isGoalsSelected
     }
-    
   }
   
+}
+
+// MARK: - Setup Views
+extension NotificationViewController {
   private func setupView() {
     outletInit()
     if isGoalsExists == false {
       print("Notification = Goal don't exists")
-    } else {
     }
   }
   
@@ -171,29 +167,12 @@ extension NotificationViewController: UITableViewDelegate, UITableViewDataSource
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//    if prefView.cellForRow(at: indexPath)?.accessoryType == .checkmark {
-//      prefView.cellForRow(at: indexPath)?.accessoryType = .none
-//    } else {
-//      prefView.cellForRow(at: indexPath)?.accessoryType = .checkmark
-//    }
-    
     savedIndex = indexPath.row
     selectedHours = selectedItemDict[indexPath.row]
     saveIndexAndHours()
     fetchInLoad()
     prefView.reloadData()
   }
-  
-//  func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-//    prefView.cellForRow(at: indexPath)?.accessoryType = .none
-////
-////    prefView.cellForRow(at: indexPath)?.accessoryType = .none
-////    periodArray[indexPath[1]].periodState = false
-//    //print(periodArray)
-//  }
-//
-  
-  
 }
 
 // MARK: Structs and Models

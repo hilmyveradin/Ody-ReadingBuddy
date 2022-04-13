@@ -28,31 +28,20 @@ class NewDayManager {
          2. insert current day yang baru
          3. increase days spent
          4. reset time spent
-  
          */
         
         //1
         CoreDataManager.manager.deleteCurrentDay()
-        
         //2
         CoreDataManager.manager.insertCurrentDay(currentDay: Int64(countDayandMonth))
-        
         //3
         CoreDataManager.manager.increaseDaysSpent()
-        
         //4
         CoreDataManager.manager.resetTimeSpent()
       } else {
         print("New Day Manager: Start date is still greater than current date")
       }
     }
-    
-    
-    
   }
   
-  
-  
-  
-
 }

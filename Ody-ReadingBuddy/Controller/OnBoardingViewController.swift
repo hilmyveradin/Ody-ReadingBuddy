@@ -9,7 +9,8 @@ import Foundation
 import UIKit
 
 class OnBoardingViewController: UIViewController {
-
+  
+  // MARK: - Properties
   //Outlets
   @IBOutlet weak var imageUI: UIImageView!
   @IBOutlet weak var imageTitleUI: UILabel!
@@ -23,6 +24,7 @@ class OnBoardingViewController: UIViewController {
   //Data
   var onBoardings: [OnBoarding] = []
   
+  // MARK: - Life Cycle
   override func viewDidLoad() {
     super.viewDidLoad()
       
@@ -36,15 +38,14 @@ class OnBoardingViewController: UIViewController {
   
   override func viewDidAppear(_ animated: Bool) {
       if LandscapeManager.shared.isFirstLaunch {
-//        let storyboard1 = UIStoryboard(name: "OnBoarding", bundle: nil)
-//        let appear1 = storyboard1.instantiateViewController(withIdentifier: "OnBoarding")
-//        present(appear1, animated: true)
           LandscapeManager.shared.isFirstLaunch = true
       } else {
         LandscapeManager.shared.isFirstLaunch = false
         performSegue(withIdentifier: "OnBoardingToMain", sender: self)
       }
   }
+  
+  // MARK: - Button Action
   
   @IBAction func nextClicked(_ sender: UIButton) {
     //go to the next page
@@ -76,6 +77,8 @@ class OnBoardingViewController: UIViewController {
   @IBAction func startClicked(_ sender: UIButton) {
       //open timer page
   }
+  
+  //MARK: - Helpers
   
   func setUpPage(index: Int) {
     //page data
