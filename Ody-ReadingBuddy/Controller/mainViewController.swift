@@ -18,7 +18,7 @@ class mainViewController: UIViewController {
   @IBOutlet weak var daySpentUI: UILabel!
   @IBOutlet weak var timeSpentUI: UILabel!
   
-  var isGoalExist = true
+  var isGoalExist = false
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -38,12 +38,14 @@ class mainViewController: UIViewController {
     //no goal
     if isGoalExist == true{
       performSegue(withIdentifier: "toTimer", sender: self)
-
     }else{
       let alert = UIAlertController(title: "You haven't set any goal", message: "Set goal before you start. Go to 'Goals'?", preferredStyle: .alert)
 
       alert.addAction(UIAlertAction(title: "Yes", style: .cancel, handler: { action in
         //open goals
+        let storyboard = UIStoryboard(name: "MyGoals", bundle: nil);
+        let vc = storyboard.instantiateViewController(withIdentifier: "myGoals") ; // MySecondSecreen the storyboard ID
+        self.present(vc, animated: true, completion: nil);
         
         }))
       

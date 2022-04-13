@@ -12,7 +12,7 @@
         <!--My Goals-->
         <scene sceneID="Zvg-Bc-gnV">
             <objects>
-                <viewController id="xyo-qx-qVV" customClass="MyGoalsViewController" customModule="Ody_ReadingBuddy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="myGoals" useStoryboardIdentifierAsRestorationIdentifier="YES" id="xyo-qx-qVV" customClass="MyGoalsViewController" customModule="Ody_ReadingBuddy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LbU-cy-S0T">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
