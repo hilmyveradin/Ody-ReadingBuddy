@@ -37,20 +37,12 @@ class NotificationManager {
   var totalDays: Int!
   var newDictionary: NSMutableDictionary!
   
-  func getFinalArray() {
-    /*
-     1. dapet interval months
-     2. dapet total days
-     3. check yang ada di months, matchingin sama totalDays
-     */
-    
-    //1.
-    months = [4, 5]
-    
-    //2.
-//    for month in months {
-////      totalDaysInMonths[month]
-//    }
+  public func getHours(hours: [Int]) {
+    self.hours = hours
+  }
+  
+  public func getWeekday(weekdays: [Int]) {
+    self.weekdays = weekdays
   }
   
   func resetNotification() {
@@ -62,39 +54,22 @@ class NotificationManager {
     weekdays = [1, 2, 3, 4, 5, 6, 7]
   }
   
-  public func getHours(hours: [Int]) {
-    self.hours = hours
-  }
-  
-  public func getWeekday(weekdays: [Int]) {
-    self.weekdays = weekdays
-  }
-  
   func getNotification() {
     print("month: \(months)")
     print("days: \(days)")
     print("hours: \(hours)")
-    let notificationContent = UNMutableNotificationContent()
     
+    let notificationContent = UNMutableNotificationContent()
     notificationContent.title = "It's time to read!"
     notificationContent.body = "Let's start reading. Your progress is waiting to be completed"
     notificationContent.badge = NSNumber(value: 1)
-    
-//    // add attachment
-//    if let url = Bundle.main.url(forResource: "logoOdy", withExtension: "png") {
-//      if let attachment = try? UNNotificationAttachment(identifier: "logoOdy",
-//                                                        url: url,
-//                                                        options: nil) {
-//        notificationContent.attachments = [attachment]
-//      }
-//    }
     
     for month in self.months {
       for weekday in weekdays {
         for day in self.days {
           for hour in self.weekdays {
-            var dateComponents = DateComponents()
             
+            var dateComponents = DateComponents()
             dateComponents.calendar = Calendar.current
             dateComponents.month = month
             dateComponents.day = day
@@ -149,13 +124,10 @@ class NotificationManager {
   
   func testNotification() {
     let notificationContent = UNMutableNotificationContent()
-    
     notificationContent.title = "It's time to read!"
     notificationContent.body = "Let's start reading. Your progress is waiting to be completed"
     notificationContent.badge = NSNumber(value: 1)
     
-
-//    let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
     let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
     let request = UNNotificationRequest(identifier: "testInterval",
                                         content: notificationContent,
@@ -164,66 +136,7 @@ class NotificationManager {
       if let error = error {
         print("Notification Error: ", error)
       }
-      
     }
   }
+  
 }
-
-
-
-// MARK: - Unused Code
-
-//func sendNotification() {
-//  let notificationContent = UNMutableNotificationContent()
-//
-//  notificationContent.title = "Test"
-//  notificationContent.body = "Test body"
-//  notificationContent.badge = NSNumber(value: 3)
-//
-//  // add attachment
-//  if let url = Bundle.main.url(forResource: "logoOdy", withExtension: "png") {
-//    if let attachment = try? UNNotificationAttachment(identifier: "logoOdy",
-//                                                      url: url,
-//                                                      options: nil) {
-//      notificationContent.attachments = [attachment]
-//    }
-//  }
-//
-//  // date components
-//  var dateComponent = DateComponents()
-//  dateComponent.hour = 9
-//
-//  // trigger and request
-//  let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
-//  let fireDate = Calendar.current.dateComponents([.day], from: startDate.date)
-//  let trigger2 = UNCalendarNotificationTrigger(dateMatching: fireDate, repeats: true)
-//  let request = UNNotificationRequest(identifier: "testNotification",
-//                                      content: notificationContent,
-//                                      trigger: trigger)
-//  userNotificationCenter.add(request) { (error) in
-//    if let error = error {
-//      print("Notification Error: ", error)
-//    }
-//  }
-//}
-//
-//func setNotification2() {
-//
-//  let center = UNUserNotificationCenter.current()
-//  let content = UNMutableNotificationContent()
-//
-//  content.title = "Notifiaction on a certail date"
-//  content.body = "This is a local notification on certain date"
-//  content.sound = .default
-//  content.userInfo = ["value": "Data with local notification"]
-//
-//  let fireDate = Calendar.current.dateComponents([.day, .month, .year, .hour, .minute, .second], from: Date().addingTimeInterval(20))
-//  let trigger = UNCalendarNotificationTrigger(dateMatching: fireDate, repeats: false)
-//  let request = UNNotificationRequest(identifier: "reminder", content: content, trigger: trigger)
-//
-//  center.add(request) { (error) in
-//    if error != nil {
-//      print("Error = \(error?.localizedDescription ?? "error local notification")")
-//    }
-//  }
-//}

@@ -42,11 +42,6 @@ class MyGoalsViewController: UIViewController {
   
   //MARK: - Life Cycles
   
-//  override func viewDidLoad() {
-//    super.viewDidLoad()
-//
-//  }
-  
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     fetchInLoad()
@@ -74,9 +69,7 @@ class MyGoalsViewController: UIViewController {
         self.setupView()
       }))
       self.present(alert, animated: true, completion: nil)
-      
     } else {
-      
       let alert = UIAlertController(title: "Do You Want To End Goal?", message: "My goals can be edited after the current goal is ended" , preferredStyle: .alert)
       alert.view.tintColor = UIColor.init(named: "BoldOrange-Color")
       alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
@@ -87,11 +80,13 @@ class MyGoalsViewController: UIViewController {
       }))
       self.present(alert, animated: true, completion: nil)
     }
-    
   }
   
-  //MARK: - Action Helpers
-  
+}
+
+// MARK: - Core Data Helpers
+
+extension MyGoalsViewController {
   private func saveGoals() {
     self.isGoalsExists = true
     /*
@@ -124,7 +119,6 @@ class MyGoalsViewController: UIViewController {
   }
   
   private func resetGoals() {
-//    self.isGoalsExists = false
     /*
      1. delete home entitiy
      2. delete myGoals entitiy
@@ -153,23 +147,6 @@ class MyGoalsViewController: UIViewController {
     NotificationManager.manager.resetNotification()
   }
   
-  private func getWeekday() -> [Int] {
-    let weekdays = CoreDataManager.manager.fetchWeekdays()
-    guard let weekdays = weekdays else {
-      return [1, 2, 3, 4, 5, 6, 7]
-    }
-    
-    return weekdays.weekdays!
-  }
-  
-  private func getCurrentDay(startDate: Date) {
-    let currentMonth = Calendar.current.dateComponents([.month], from: startDate)
-    let currentDay = Calendar.current.dateComponents([.day], from: startDate)
-    let countDayandMonth = (currentMonth.month! * 30) + (currentDay.day!)
-    
-    CoreDataManager.manager.insertCurrentDay(currentDay: Int64(countDayandMonth))
-  }
-  
   func fetchInLoad() {
     /*
      1. fetch myGoals (for a placeholder)
@@ -193,6 +170,22 @@ class MyGoalsViewController: UIViewController {
     
   }
   
+  private func getWeekday() -> [Int] {
+    let weekdays = CoreDataManager.manager.fetchWeekdays()
+    guard let weekdays = weekdays else {
+      return [1, 2, 3, 4, 5, 6, 7]
+    }
+    
+    return weekdays.weekdays!
+  }
+  
+  private func getCurrentDay(startDate: Date) {
+    let currentMonth = Calendar.current.dateComponents([.month], from: startDate)
+    let currentDay = Calendar.current.dateComponents([.day], from: startDate)
+    let countDayandMonth = (currentMonth.month! * 30) + (currentDay.day!)
+    
+    CoreDataManager.manager.insertCurrentDay(currentDay: Int64(countDayandMonth))
+  }
   
   func getNumberOfDays() -> Int16 {
     let numberofDays = Calendar.current.dateComponents([.day], from: startDate.date, to: endDate.date)

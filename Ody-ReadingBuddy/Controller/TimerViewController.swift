@@ -7,49 +7,6 @@
 import Foundation
 import UIKit
 
-/*
- 1. fetch Mygoals.duration (durasi total) (ini yang bakal dipake seterusnya)
- 
- seandainya keluar/back dari aplikasi
- -> hasil fetch dari mygoals.duration, disimpen di current timer
- 
- tiga variable:
- totalDuration = fetch di mygoals.duration
- currentDuration = fetch dari currentDuration
- 
- if currentDuration != 0 {
- timer = totalDuration
- } else
- timer = currentTimer
- 
- Timer
- 
- 
- 
- 
- 
- 
- 
- totalDuration = 300
- timer = 300
- 
- var totalDuration = MyGoals.duration
- var currentTimer = TimeInterface.currentTimer
- var Timer: Int!
- 
- if currentTimer != 0 {
- Timer = currentTimer
- } else {
- Timer = totalDuration
- }
- 
- *case keluar dari app*
- func saveCurrentTimer(Timer) -> currentTimer
- */
-
-
-
-
 class TimerViewController: UIViewController {
   
   // MARK: - Properties
@@ -63,56 +20,47 @@ class TimerViewController: UIViewController {
   var home: Home?
   
   var timeSpent: Int!
+  var timeTarget: Int!
   var seconds: Int!
   var timer = Timer()
   var isTimerRunning = true
   var resumeTapped = false
   
-  //  @IBAction func startButtonTapped(_ sender: UIButton){
-  //    if isTimerRunning == false {
-  //         runTimer()
-  //         self.startButton.isEnabled = false
-  //    }
-  //  }
-  
   // MARK: - Life Cycles
   override func viewDidLoad() {
     super.viewDidLoad()
     fetchWhenLoaded()
+    
     let mascotGif = UIImage.gifImageWithName("maskotBaca")
     imageView.image = mascotGif
+    
     runTimer()
     updateTimer()
+    
     tabBarController?.tabBar.isHidden = true
-    
-    
   }
   
   override func viewWillDisappear(_ animated: Bool) {
     super.viewWillDisappear(animated)
-    /*
-     1. save current timer
-     */
-    
-    // 1
     if let seconds = seconds {
-      CoreDataManager.manager.increaseTimeSpent(addedTimeSpent: Int64(seconds))
+      if seconds == 0 {
+        CoreDataManager.manager.increaseTimeSpent(addedTimeSpent: Int64(timeTarget))
+      } else {
+        CoreDataManager.manager.increaseTimeSpent(addedTimeSpent: Int64(seconds))
+      }
     }
     tabBarController?.tabBar.isHidden = false
-
-    
   }
   
   // MARK: - Button Actions
   @IBAction func pauseButtonTapped(_ sender: UIButton){
     if self.resumeTapped == false {
       timer.invalidate()
-      self.resumeTapped = true
       pauseButton.setImage(UIImage(systemName:"play.fill"), for: .normal)
       pauseButton.tintColor = UIColor(named: "AccentColor")
       pauseButton.configuration?.background.strokeWidth = 2
       pauseButton.configuration?.background.backgroundColor = UIColor.white
-      
+      self.resumeTapped = true
     } else {
       runTimer()
       pauseButton.setImage(UIImage(systemName:"pause"), for: .normal)
@@ -124,21 +72,21 @@ class TimerViewController: UIViewController {
   
   @IBAction func resetButtonTapped(_ sender: UIButton){
     timer.invalidate()
-    
     let alert = UIAlertController(title: "Reset Timer", message: "Are you sure to reset the Timer", preferredStyle: .alert)
     alert.view.tintColor = UIColor.init(named: "BoldOrange-Color")
-    alert.addAction(UIAlertAction(title: "No", style: .default, handler: { (_) in
-    }))
+    alert.addAction(UIAlertAction(title: "No", style: .default))
     alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { [self] (_) in
       self.refetchResetButton()  //Here we manually enter the restarting point for the seconds, but it would be wiser to make this a variable or constant.
-      self.timerLabel.text = self.timeString(time: TimeInterval(self.seconds))
-      self.isTimerRunning = false
-      self.pauseButton.setImage(UIImage(systemName:"play.fill", compatibleWith: .none), for: .normal)
-      pauseButton.setTitleColor(.white, for: .normal)
-      self.resumeTapped = true
-      self.resetButton.setTitleColor(UIColor(named: "BoldOrange-Color", in: nil, compatibleWith: nil), for: .normal)
-    }))
       
+      self.timerLabel.text = self.timeString(time: TimeInterval(self.seconds))
+
+      self.pauseButton.setImage(UIImage(systemName:"play.fill", compatibleWith: .none), for: .normal)
+      self.pauseButton.setTitleColor(.white, for: .normal)
+      self.resetButton.setTitleColor(UIColor(named: "BoldOrange-Color", in: nil, compatibleWith: nil), for: .normal)
+      
+      self.resumeTapped = true
+      self.isTimerRunning = false
+    }))
     self.present(alert, animated: true, completion: nil)
   }
   
@@ -147,16 +95,16 @@ class TimerViewController: UIViewController {
 
     let alert = UIAlertController(title: "Stop Timer", message: "Are you sure to stop the timer?", preferredStyle: .alert)
     alert.view.tintColor = UIColor.init(named: "BoldOrange-Color")
-    alert.addAction(UIAlertAction(title: "No", style: .default, handler: { (_) in
-    }))
+    alert.addAction(UIAlertAction(title: "No", style: .default))
     alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { [self] (_) in
       performSegue(withIdentifier: "toBack", sender: self)
       tabBarController?.tabBar.isHidden = false
     }))
-      
+    
     self.present(alert, animated: true, completion: nil)
-//    performSegue(withIdentifier: "toBack", sender: self)
   }
+  
+  // MARK: - Action Helpers
   
   @objc func updateTimer() {
     if seconds < 1 && seconds != nil{
@@ -174,8 +122,6 @@ class TimerViewController: UIViewController {
     }
   }
   
-  // MARK: - Action Helpers
-  
   func runTimer() {
     timer = Timer.scheduledTimer(timeInterval: 1, target: self,   selector:(#selector(TimerViewController.updateTimer)), userInfo: nil, repeats: true)
     isTimerRunning = true
@@ -188,36 +134,12 @@ class TimerViewController: UIViewController {
     let seconds = Int(time) % 60
     return String(format:"%02i:%02i:%02i", hours, minutes, seconds)
   }
-  
-  private func fetchWhenLoaded() {
-    /*
-     1. fetch Home, get time spent
-     2. fetch time interface
-     3. check for each condition, if timeInterface = nil, seconds =
-     */
-    
-    //1
-    let home = CoreDataManager.manager.fetchHome()
-    guard let home = home else {
-      return print("Timer: home doesn't exists")
-    }
-    
-    //    let timer = CoreDataManager.manager.fetchTimer()
-    //    guard let timer = timer else {
-    //      return print("Timer: timer doesn't exists")
-    //    }
-    
-    timeSpent = Int(home.timeSpent)
-    
-    if timeSpent == 0 {
-      seconds = Int(home.timeTarget)
-    } else {
-      seconds = Int(home.timeSpent)
-    }
-    
-    
-  }
-  
+
+}
+
+// MARK: - Core Data Helpers
+
+extension TimerViewController {
   private func refetchResetButton() {
     /*
      1. fetch Home, get time spent
@@ -229,91 +151,21 @@ class TimerViewController: UIViewController {
     seconds = Int(home.timeTarget)
   }
   
-  // MARK: Unwinde Segoe
-//  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//  }
-//  @IBAction func performUnwindSegueOperation(_ sender: UIStoryboardSegue) {
-//    timer.invalidate()
-//    //performSegue(withIdentifier: "toMain", sender: self)
-//    let alert = UIAlertController(title: "Stop Timer", message: "Are you sure to stop the timer?", preferredStyle: .alert)
-//
-//    alert.addAction(UIAlertAction(title: "No", style: .default, handler: { (_) in
-//    }))
-//    alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { [self] (_) in
-//      performSegue(withIdentifier: "toMain", sender: self)
-//      tabBarController?.tabBar.isHidden = false
-//    }))
-//
-//    self.present(alert, animated: true, completion: nil)
-//  }
-  
-  //  @IBOutlet weak var timerLabel: UILabel!
-  //  @IBOutlet weak var pauseButton: UIButton!
-  //  @IBOutlet weak  var resetButton: UIButton!
-  //  @IBOutlet weak var imageView: UIImageView!
-  //
-  //  var timer:Timer = Timer()
-  //  var initialVal:Int = 60
-  //  var count:Int = 60
-  //  var isCounting:Bool = false
-  //
-  //  override func viewDidLoad() {
-  //     super.viewDidLoad()
-  //
-  //     let mascotGif = UIImage.gifImageWithName("maskotBaca")
-  //         imageView.image = mascotGif
-  //   }
-  //
-  //  @IBAction func pauseButton(_ sender: Any){
-  //    if (isCounting){
-  //      isCounting = false
-  //      timer.invalidate()
-  //      pauseButton.setImage(UIImage(named: "play.png"), for: .normal)
-  //    }
-  //    else{
-  //      isCounting = true
-  //      pauseButton.setImage(UIImage(named: "pause.png"), for: .normal)
-  //      timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerCounter), userInfo: nil, repeats: true)
-  //    }
-  //  }
-  //
-  //  @objc func timerCounter() -> Void {
-  //    count = count - 1
-  //    let time = secMinsHours(seconds: count)
-  //    let timeString = timeToString(hours: time.0, minutes: time.1, seconds: time.2)
-  //    timerLabel.text = timeString
-  //  }
-  //
-  //  func secMinsHours(seconds: Int) -> (Int, Int, Int){
-  //    return ((seconds / 3600), ((seconds % 36000) / 60), ((seconds % 36000) % 60 ))
-  //  }
-  //  func timeToString(hours:Int, minutes:Int, seconds:Int) -> String
-  //  {
-  //    var timeString = ""
-  //    timeString += String(format: "%02d", hours)
-  //    timeString += " : "
-  //    timeString += String(format: "%02d", minutes)
-  //    timeString += " : "
-  //    timeString += String(format: "%02d", seconds)
-  //    return timeString
-  //  }
-  //
-  //  @IBAction func resetPressed(_ sender: Any) {
-  //
-  //    let time2 = secMinsHours(seconds: initialVal)
-  //    let timeString2 = timeToString(hours: time2.0, minutes: time2.1, seconds: time2.2)
-  //    let alert = UIAlertController(title: "Reset Timer", message: "Are you sure would like to reset the Timer", preferredStyle: .alert)
-  //
-  //    alert.addAction(UIAlertAction(title: "CANCEL", style: .cancel, handler: { (_) in
-  //    }))
-  //    alert.addAction(UIAlertAction(title: "YES", style: .default, handler: { (_) in
-  //      self.count = self.initialVal
-  //      self.timer.invalidate()
-  //      self.timerLabel.text = timeString2
-  //      self.pauseButton.setImage(UIImage(named: "play.png"), for: .normal)
-  //    }))
-  //
-  //    self.present(alert, animated: true, completion: nil)
-  //  }
-  //
+  private func fetchWhenLoaded() {
+
+    // fetch home, get timeTarget and Time Spent
+    let home = CoreDataManager.manager.fetchHome()
+    guard let home = home else {
+      return print("Timer: home doesn't exists")
+    }
+    
+    timeSpent = Int(home.timeSpent)
+    timeTarget = Int(home.timeTarget)
+    
+    if timeSpent == 0 {
+      seconds = Int(home.timeTarget)
+    } else {
+      seconds = Int(home.timeSpent)
+    }
+  }
 }

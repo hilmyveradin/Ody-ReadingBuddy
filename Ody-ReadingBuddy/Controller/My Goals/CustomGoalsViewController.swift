@@ -19,8 +19,8 @@ class CustomGoalsViewController: UIViewController {
     }
   }
   @IBOutlet weak var saveSettingButton: UIButton!
-  var weekdays: Weekdays?
   
+  var weekdays: Weekdays?
   
   var days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
   var daysDict = [
