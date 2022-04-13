@@ -21,6 +21,7 @@ class MainViewController: UIViewController {
   // Core Data properties
   var isGoalsSelected : IsGoalsSelected?
   var home : Home?
+  var leftBarButtonItem : UIBarButtonItem!
   
   var isGoalExists = false
   var timeTarget = 0
@@ -30,9 +31,7 @@ class MainViewController: UIViewController {
   
   
   //MARK: - Life Cycles
-  
-  override func viewDidLoad() {
-    super.viewDidLoad()
+  @IBAction func unwind( _ seg: UIStoryboardSegue) {
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -48,6 +47,8 @@ class MainViewController: UIViewController {
     timeSpentFunction()
     daysSpentFunction()
     
+    self.navigationItem.leftBarButtonItem = nil
+    
     print("Main: View did load called!")
   }
   
@@ -61,7 +62,7 @@ class MainViewController: UIViewController {
     } else {
       let alert = UIAlertController(title: "You haven't set any goal", message: "Set goal before you start. Go to 'Goals'?", preferredStyle: .alert)
       
-      alert.addAction(UIAlertAction(title: "Yes", style: .cancel, handler: { action in
+      alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { action in
         //open goals
         
       }))
@@ -159,7 +160,7 @@ class MainViewController: UIViewController {
     //get data
     //    timeSpent = 10
     //    timeTarget = 15
-    let progress: Double = Double(1) / Double(timeTarget) * Double(timeSpent)
+    let progress: Double = Double(1) / Double(timeTarget) * (Double(timeTarget)-Double(timeSpent))
     
     basicAnimation.toValue = progress
     basicAnimation.duration = 1
@@ -169,7 +170,17 @@ class MainViewController: UIViewController {
     shapeLayer.add(basicAnimation, forKey: "animation")
     
     //set label
-    timeSpentUI.text = "\(timeSpent)m"
+    if timeSpent <= 60{
+      timeSpentUI.text = "\(timeSpent)s"
+    }
+    else if 60 < timeSpent && timeSpent < 3600{
+      var minutes = timeSpent/60%60
+      timeSpentUI.text = "\(minutes)m"
+    }
+    else{
+      var hour = timeSpent/3600
+      timeSpentUI.text = "\(hour)h"
+    }
   }
   
   func fetchWhenLoaded() {
@@ -204,6 +215,8 @@ class MainViewController: UIViewController {
       self.timeSpent = Int(home.timeSpent)
       print("Main: Home fetch succeed!")
     
+    
+
   }
   
   //  @IBOutlet weak var mainImageView: UIImageView!
@@ -256,3 +269,4 @@ class MainViewController: UIViewController {
   //    shapeLayer.add(basicAnimation, forKey:"urSoBasic")
   //  }
 }
+
