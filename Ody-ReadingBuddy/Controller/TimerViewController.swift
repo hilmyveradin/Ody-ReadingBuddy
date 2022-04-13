@@ -4,7 +4,6 @@
 //
 //  Created by Hilmy Veradin on 06/04/22.
 //
-
 import Foundation
 import UIKit
 
@@ -84,6 +83,9 @@ class TimerViewController: UIViewController {
     imageView.image = mascotGif
     runTimer()
     updateTimer()
+    tabBarController?.tabBar.isHidden = true
+    
+    
   }
   
   override func viewWillDisappear(_ animated: Bool) {
@@ -96,16 +98,15 @@ class TimerViewController: UIViewController {
     if let seconds = seconds {
       CoreDataManager.manager.increaseTimeSpent(addedTimeSpent: Int64(seconds))
     }
+
     
   }
   
   // MARK: - Button Actions
-  
   @IBAction func pauseButtonTapped(_ sender: UIButton){
     if self.resumeTapped == false {
       timer.invalidate()
       self.pauseButton.setImage(UIImage(systemName:"play.fill", compatibleWith: .none), for: .normal)
-      pauseButton.tintColor = .blue
       self.resumeTapped = true
       pauseButton.setTitleColor(.white, for: .normal)
       
@@ -119,21 +120,48 @@ class TimerViewController: UIViewController {
   
   @IBAction func resetButtonTapped(_ sender: UIButton){
     timer.invalidate()
-    refetchResetButton()  //Here we manually enter the restarting point for the seconds, but it would be wiser to make this a variable or constant.
-    timerLabel.text = timeString(time: TimeInterval(seconds))
-    isTimerRunning = false
-    self.pauseButton.setImage(UIImage(systemName:"play.fill", compatibleWith: .none), for: .normal)
+    
+    let alert = UIAlertController(title: "Reset Timer", message: "Are you sure to reset the Timer", preferredStyle: .alert)
+    
+    alert.addAction(UIAlertAction(title: "No", style: .default, handler: { (_) in
+    }))
+    alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { [self] (_) in
+      self.refetchResetButton()  //Here we manually enter the restarting point for the seconds, but it would be wiser to make this a variable or constant.
+      self.timerLabel.text = self.timeString(time: TimeInterval(self.seconds))
+      self.isTimerRunning = false
+      self.pauseButton.setImage(UIImage(systemName:"play.fill", compatibleWith: .none), for: .normal)
+      self.resumeTapped = false
+      self.resetButton.setTitleColor(UIColor(named: "BoldOrange-Color", in: nil, compatibleWith: nil), for: .normal)
+    }))
+      
+    self.present(alert, animated: true, completion: nil)
   }
   
   @IBAction func stopButtonTapped(_ sender: UIButton){
     timer.invalidate()
-    performSegue(withIdentifier: "toMain", sender: self)
+
+    let alert = UIAlertController(title: "Stop Timer", message: "Are you sure to stop the timer?", preferredStyle: .alert)
+    
+    alert.addAction(UIAlertAction(title: "No", style: .default, handler: { (_) in
+    }))
+    alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { [self] (_) in
+      performSegue(withIdentifier: "toBack", sender: self)
+      tabBarController?.tabBar.isHidden = false
+    }))
+      
+    self.present(alert, animated: true, completion: nil)
+//    performSegue(withIdentifier: "toBack", sender: self)
   }
   
   @objc func updateTimer() {
     if seconds < 1 {
       timer.invalidate()
-      //Send alert to indicate "time's up!"
+      let alert = UIAlertController(title: "Congratzzz", message: "You've achieved your goals. Let's go back to home :))", preferredStyle: .alert)
+      alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: { [self] (_) in
+        performSegue(withIdentifier: "toBack", sender: self)
+        tabBarController?.tabBar.isHidden = false
+      }))
+      self.present(alert, animated: true, completion: nil)
     } else {
       seconds -= 1
       timerLabel.text = timeString(time: TimeInterval(seconds))
@@ -194,6 +222,24 @@ class TimerViewController: UIViewController {
     }
     seconds = Int(home.timeTarget)
   }
+  
+  // MARK: Unwinde Segoe
+//  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//  }
+//  @IBAction func performUnwindSegueOperation(_ sender: UIStoryboardSegue) {
+//    timer.invalidate()
+//    //performSegue(withIdentifier: "toMain", sender: self)
+//    let alert = UIAlertController(title: "Stop Timer", message: "Are you sure to stop the timer?", preferredStyle: .alert)
+//
+//    alert.addAction(UIAlertAction(title: "No", style: .default, handler: { (_) in
+//    }))
+//    alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { [self] (_) in
+//      performSegue(withIdentifier: "toMain", sender: self)
+//      tabBarController?.tabBar.isHidden = false
+//    }))
+//
+//    self.present(alert, animated: true, completion: nil)
+//  }
   
   //  @IBOutlet weak var timerLabel: UILabel!
   //  @IBOutlet weak var pauseButton: UIButton!

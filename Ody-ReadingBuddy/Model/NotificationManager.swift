@@ -48,9 +48,9 @@ class NotificationManager {
     months = [4, 5]
     
     //2.
-    for month in months {
-      totalDaysInMonths[month]
-    }
+//    for month in months {
+////      totalDaysInMonths[month]
+//    }
   }
   
   func resetNotification() {

@@ -15,11 +15,9 @@
 		0110AB9C27FDEA20006BFD84 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0110AB9B27FDEA20006BFD84 /* Assets.xcassets */; };
 		0110AB9F27FDEA20006BFD84 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0110AB9D27FDEA20006BFD84 /* LaunchScreen.storyboard */; };
 		0110ABAC27FDEAB2006BFD84 /* MyGoals.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0110ABAB27FDEAB2006BFD84 /* MyGoals.storyboard */; };
-		0110ABAE27FDEAB9006BFD84 /* Timer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0110ABAD27FDEAB9006BFD84 /* Timer.storyboard */; };
 		0110ABB027FDEABF006BFD84 /* Notification.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0110ABAF27FDEABF006BFD84 /* Notification.storyboard */; };
 		0110ABB227FDEAD1006BFD84 /* OnBoarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0110ABB127FDEAD1006BFD84 /* OnBoarding.storyboard */; };
 		0110ABB727FDECD8006BFD84 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0110ABB627FDECD8006BFD84 /* NotificationViewController.swift */; };
-		0110ABB927FDECDE006BFD84 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0110ABB827FDECDE006BFD84 /* TimerViewController.swift */; };
 		0110ABBB27FDECE4006BFD84 /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0110ABBA27FDECE4006BFD84 /* OnBoardingViewController.swift */; };
 		013212B72803CF8D003F5742 /* OnBoarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013212B62803CF8D003F5742 /* OnBoarding.swift */; };
 		01374A4427FFE91D006A6147 /* masccotfin.gif in Resources */ = {isa = PBXBuildFile; fileRef = 01374A4227FFE91D006A6147 /* masccotfin.gif */; };
@@ -28,11 +26,14 @@
 		01374A4A28000F73006A6147 /* DictionaryExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01374A4928000F73006A6147 /* DictionaryExtension.swift */; };
 		01374A4C280033BD006A6147 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01374A4B280033BD006A6147 /* CoreDataManager.swift */; };
 		01B26DDA27FF35290004A93C /* MyGoalsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B26DD927FF35290004A93C /* MyGoalsViewController.swift */; };
+		01D026392806D1DE00019010 /* Timer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01D026382806D1DE00019010 /* Timer.storyboard */; };
+		01D0263C2806D20600019010 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D0263A2806D20600019010 /* MainViewController.swift */; };
+		01D0263D2806D20600019010 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D0263B2806D20600019010 /* TimerViewController.swift */; };
+		01D0263F2806D3C100019010 /* LandscapeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D0263E2806D3C100019010 /* LandscapeManager.swift */; };
 		01E878F32802AFDC0057A123 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E878F22802AFDC0057A123 /* DateManager.swift */; };
 		01E878F52802C1540057A123 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E878F42802C1540057A123 /* NotificationManager.swift */; };
 		01F0653A2805DB5300DC6730 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 01F065382805DB5300DC6730 /* DataModel.xcdatamodeld */; };
 		F91B9DCC2803C9C0000F5165 /* GifLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91B9DCB2803C9C0000F5165 /* GifLoader.swift */; };
-		F94DE4A62804BE6400D5E333 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94DE4A52804BE6400D5E333 /* MainViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,11 +47,9 @@
 		0110AB9E27FDEA20006BFD84 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0110ABA027FDEA20006BFD84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0110ABAB27FDEAB2006BFD84 /* MyGoals.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyGoals.storyboard; sourceTree = "<group>"; };
-		0110ABAD27FDEAB9006BFD84 /* Timer.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Timer.storyboard; sourceTree = "<group>"; };
 		0110ABAF27FDEABF006BFD84 /* Notification.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Notification.storyboard; sourceTree = "<group>"; };
 		0110ABB127FDEAD1006BFD84 /* OnBoarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OnBoarding.storyboard; sourceTree = "<group>"; };
 		0110ABB627FDECD8006BFD84 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
-		0110ABB827FDECDE006BFD84 /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		0110ABBA27FDECE4006BFD84 /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
 		013212B62803CF8D003F5742 /* OnBoarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoarding.swift; sourceTree = "<group>"; };
 		01374A4227FFE91D006A6147 /* masccotfin.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = masccotfin.gif; sourceTree = "<group>"; };
@@ -59,11 +58,14 @@
 		01374A4928000F73006A6147 /* DictionaryExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryExtension.swift; sourceTree = "<group>"; };
 		01374A4B280033BD006A6147 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		01B26DD927FF35290004A93C /* MyGoalsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGoalsViewController.swift; sourceTree = "<group>"; };
+		01D026382806D1DE00019010 /* Timer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Timer.storyboard; sourceTree = "<group>"; };
+		01D0263A2806D20600019010 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		01D0263B2806D20600019010 /* TimerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
+		01D0263E2806D3C100019010 /* LandscapeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandscapeManager.swift; sourceTree = "<group>"; };
 		01E878F22802AFDC0057A123 /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
 		01E878F42802C1540057A123 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		01F065392805DB5300DC6730 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		F91B9DCB2803C9C0000F5165 /* GifLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifLoader.swift; sourceTree = "<group>"; };
-		F94DE4A52804BE6400D5E333 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,7 +98,6 @@
 		0110AB8E27FDEA1F006BFD84 /* Ody-ReadingBuddy */ = {
 			isa = PBXGroup;
 			children = (
-				0110ABAA27FDEA4C006BFD84 /* Assets */,
 				0110ABA627FDEA2A006BFD84 /* Base */,
 				0110ABA727FDEA30006BFD84 /* Model */,
 				0110ABA927FDEA46006BFD84 /* Controller */,
@@ -113,6 +114,7 @@
 				0110AB8F27FDEA1F006BFD84 /* AppDelegate.swift */,
 				0110AB9127FDEA1F006BFD84 /* SceneDelegate.swift */,
 				01374A4928000F73006A6147 /* DictionaryExtension.swift */,
+				F91B9DCB2803C9C0000F5165 /* GifLoader.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -126,6 +128,7 @@
 				01E878F22802AFDC0057A123 /* DateManager.swift */,
 				01E878F42802C1540057A123 /* NotificationManager.swift */,
 				013212B62803CF8D003F5742 /* OnBoarding.swift */,
+				01D0263E2806D3C100019010 /* LandscapeManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -137,7 +140,7 @@
 				0110AB9527FDEA1F006BFD84 /* Main.storyboard */,
 				0110ABAB27FDEAB2006BFD84 /* MyGoals.storyboard */,
 				0110ABAF27FDEABF006BFD84 /* Notification.storyboard */,
-				0110ABAD27FDEAB9006BFD84 /* Timer.storyboard */,
+				01D026382806D1DE00019010 /* Timer.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -149,20 +152,12 @@
 				0110ABBA27FDECE4006BFD84 /* OnBoardingViewController.swift */,
 				0110AB9327FDEA1F006BFD84 /* TabBarViewController.swift */,
 				0110ABB627FDECD8006BFD84 /* NotificationViewController.swift */,
-				0110ABB827FDECDE006BFD84 /* TimerViewController.swift */,
-				F94DE4A52804BE6400D5E333 /* MainViewController.swift */,
+				01D0263A2806D20600019010 /* MainViewController.swift */,
+				01D0263B2806D20600019010 /* TimerViewController.swift */,
 				01374A4327FFE91D006A6147 /* maskotBaca.gif */,
 				01374A4227FFE91D006A6147 /* masccotfin.gif */,
-				F91B9DCB2803C9C0000F5165 /* GifLoader.swift */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		0110ABAA27FDEA4C006BFD84 /* Assets */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Assets;
 			sourceTree = "<group>";
 		};
 		0110ABB327FDEADA006BFD84 /* LaunchScreen */ = {
@@ -241,11 +236,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0110ABAE27FDEAB9006BFD84 /* Timer.storyboard in Resources */,
 				01374A4427FFE91D006A6147 /* masccotfin.gif in Resources */,
 				01374A4527FFE91D006A6147 /* maskotBaca.gif in Resources */,
 				0110AB9F27FDEA20006BFD84 /* LaunchScreen.storyboard in Resources */,
 				0110ABAC27FDEAB2006BFD84 /* MyGoals.storyboard in Resources */,
+				01D026392806D1DE00019010 /* Timer.storyboard in Resources */,
 				0110AB9C27FDEA20006BFD84 /* Assets.xcassets in Resources */,
 				0110ABB227FDEAD1006BFD84 /* OnBoarding.storyboard in Resources */,
 				0110AB9727FDEA1F006BFD84 /* Main.storyboard in Resources */,
@@ -263,16 +258,17 @@
 				0110AB9427FDEA1F006BFD84 /* TabBarViewController.swift in Sources */,
 				F91B9DCC2803C9C0000F5165 /* GifLoader.swift in Sources */,
 				01057A162806450900AB63E6 /* NewDayManager.swift in Sources */,
-				F94DE4A62804BE6400D5E333 /* MainViewController.swift in Sources */,
 				01E878F32802AFDC0057A123 /* DateManager.swift in Sources */,
 				01F0653A2805DB5300DC6730 /* DataModel.xcdatamodeld in Sources */,
 				01B26DDA27FF35290004A93C /* MyGoalsViewController.swift in Sources */,
 				0110AB9027FDEA1F006BFD84 /* AppDelegate.swift in Sources */,
+				01D0263F2806D3C100019010 /* LandscapeManager.swift in Sources */,
+				01D0263C2806D20600019010 /* MainViewController.swift in Sources */,
 				0110ABB727FDECD8006BFD84 /* NotificationViewController.swift in Sources */,
 				0110ABBB27FDECE4006BFD84 /* OnBoardingViewController.swift in Sources */,
 				013212B72803CF8D003F5742 /* OnBoarding.swift in Sources */,
 				01E878F52802C1540057A123 /* NotificationManager.swift in Sources */,
-				0110ABB927FDECDE006BFD84 /* TimerViewController.swift in Sources */,
+				01D0263D2806D20600019010 /* TimerViewController.swift in Sources */,
 				01374A4C280033BD006A6147 /* CoreDataManager.swift in Sources */,
 				01374A4827FFEAE2006A6147 /* CustomGoalsViewController.swift in Sources */,
 				01374A4A28000F73006A6147 /* DictionaryExtension.swift in Sources */,
@@ -430,7 +426,7 @@
 				INFOPLIST_FILE = "Ody-ReadingBuddy/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = OnBoarding;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -458,7 +454,7 @@
 				INFOPLIST_FILE = "Ody-ReadingBuddy/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = OnBoarding;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

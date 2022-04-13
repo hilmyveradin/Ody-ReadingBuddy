@@ -46,7 +46,6 @@ class NotificationViewController: UIViewController {
     super.viewWillAppear(animated)
     fetchInLoad()
     setupView()
-    print("ABC")
   }
   
   // MARK: - View Actions
@@ -136,9 +135,7 @@ extension NotificationViewController {
     outletInit()
     if isGoalsExists == false {
       print("Notification = Goal don't exists")
-//      prefView.cellForRow(at: IndexPath.init(row: 0, section: 1))?.accessoryType = .checkmark
     } else {
-//      prefView.cellForRow(at: IndexPath.init(row: savedIndex, section: 1))?.accessoryType = .checkmark
     }
   }
   
@@ -161,7 +158,6 @@ extension NotificationViewController: UITableViewDelegate, UITableViewDataSource
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    print("reload table")
     let cell = prefView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
     cell.textLabel?.text = "\(periodArray[indexPath.row].periodName) : \(periodArray[indexPath.row].periodStart) - \(periodArray[indexPath.row].periodFinish)"
     if indexPath.row == savedIndex {
@@ -180,21 +176,20 @@ extension NotificationViewController: UITableViewDelegate, UITableViewDataSource
 //    }
     
     savedIndex = indexPath.row
-    print(savedIndex)
-    print(periodArray)
+    selectedHours = selectedItemDict[indexPath.row]
     saveIndexAndHours()
     fetchInLoad()
     prefView.reloadData()
   }
   
-  func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-    prefView.cellForRow(at: indexPath)?.accessoryType = .none
-//
+//  func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
 //    prefView.cellForRow(at: indexPath)?.accessoryType = .none
-//    periodArray[indexPath[1]].periodState = false
-    //print(periodArray)
-  }
-  
+////
+////    prefView.cellForRow(at: indexPath)?.accessoryType = .none
+////    periodArray[indexPath[1]].periodState = false
+//    //print(periodArray)
+//  }
+//
   
   
 }

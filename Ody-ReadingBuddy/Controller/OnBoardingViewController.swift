@@ -27,11 +27,23 @@ class OnBoardingViewController: UIViewController {
     super.viewDidLoad()
       
     //generate data
-    var onBoardingData = OnBoarding()
+    let onBoardingData = OnBoarding()
     onBoardings = onBoardingData.generateOnBoarding()
     
     //set up
     setUpPage(index: 0)
+  }
+  
+  override func viewDidAppear(_ animated: Bool) {
+      if LandscapeManager.shared.isFirstLaunch {
+//        let storyboard1 = UIStoryboard(name: "OnBoarding", bundle: nil)
+//        let appear1 = storyboard1.instantiateViewController(withIdentifier: "OnBoarding")
+//        present(appear1, animated: true)
+          LandscapeManager.shared.isFirstLaunch = true
+      } else {
+        LandscapeManager.shared.isFirstLaunch = false
+        performSegue(withIdentifier: "OnBoardingToMain", sender: self)
+      }
   }
   
   @IBAction func nextClicked(_ sender: UIButton) {
@@ -51,7 +63,7 @@ class OnBoardingViewController: UIViewController {
   }
     
   @IBAction func skipClicked(_ sender: UIButton) {
-    var lastPage = pageControlUI.numberOfPages - 1
+    let lastPage = pageControlUI.numberOfPages - 1
     
     //move to last page
     pageControlUI.currentPage = lastPage
