@@ -134,7 +134,8 @@ class TimerViewController: UIViewController {
       self.timerLabel.text = self.timeString(time: TimeInterval(self.seconds))
       self.isTimerRunning = false
       self.pauseButton.setImage(UIImage(systemName:"play.fill", compatibleWith: .none), for: .normal)
-      self.resumeTapped = false
+      pauseButton.setTitleColor(.white, for: .normal)
+      self.resumeTapped = true
       self.resetButton.setTitleColor(UIColor(named: "BoldOrange-Color", in: nil, compatibleWith: nil), for: .normal)
     }))
       
