@@ -197,7 +197,7 @@ class MainViewController: UIViewController {
       timeSpentUI.text = "\(hour)h"
     } else if timeTarget <= 60 {
       print("4")
-      timeSpentUI.text = "\(timeTarget)"
+      timeSpentUI.text = "\(timeTarget)s"
     } else if timeTarget > 60 && timeTarget < 3600 {
       print("5")
       let minutes = timeTarget/60%60

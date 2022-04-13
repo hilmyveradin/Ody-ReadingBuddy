@@ -154,7 +154,7 @@ class TimerViewController: UIViewController {
   }
   
   @objc func updateTimer() {
-    if seconds < 1 {
+    if seconds < 1 && seconds != nil{
       timer.invalidate()
       let alert = UIAlertController(title: "Congratzzz", message: "You've achieved your goals. Let's go back to home :))", preferredStyle: .alert)
       alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: { [self] (_) in
