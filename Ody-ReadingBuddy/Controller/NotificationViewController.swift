@@ -54,6 +54,7 @@ class NotificationViewController: UIViewController {
     
     if isGoalsExists == true {
       let alert = UIAlertController(title: "Reminder Saved", message: "You have sucessfully saved reminder" , preferredStyle: .alert)
+      alert.view.tintColor = UIColor.init(named: "BoldOrange-Color")
       alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { [self] _ in
         resetNotification()
       }))
@@ -61,6 +62,7 @@ class NotificationViewController: UIViewController {
       print("save reminder")
     } else {
       let alert = UIAlertController(title: "Save Failed!", message: "You have to save your goals first" , preferredStyle: .alert)
+      alert.view.tintColor = UIColor.init(named: "BoldOrange-Color")
       alert.addAction(UIAlertAction(title: "Ok", style: .default))
       self.present(alert, animated: true, completion: nil)
     }

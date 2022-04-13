@@ -64,7 +64,7 @@ class MainViewController: UIViewController {
       
     } else {
       let alert = UIAlertController(title: "You haven't set any goal", message: "Set goal before you start. Please go to 'Goals' page", preferredStyle: .alert)
-      
+      alert.view.tintColor = UIColor.init(named: "BoldOrange-Color")
       alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { action in
         //open goals
         

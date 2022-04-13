@@ -98,6 +98,7 @@ class TimerViewController: UIViewController {
     if let seconds = seconds {
       CoreDataManager.manager.increaseTimeSpent(addedTimeSpent: Int64(seconds))
     }
+    tabBarController?.tabBar.isHidden = false
 
     
   }
@@ -106,15 +107,18 @@ class TimerViewController: UIViewController {
   @IBAction func pauseButtonTapped(_ sender: UIButton){
     if self.resumeTapped == false {
       timer.invalidate()
-      self.pauseButton.setImage(UIImage(systemName:"play.fill", compatibleWith: .none), for: .normal)
       self.resumeTapped = true
-      pauseButton.setTitleColor(.white, for: .normal)
+      pauseButton.setImage(UIImage(systemName:"play.fill"), for: .normal)
+      pauseButton.tintColor = UIColor(named: "AccentColor")
+      pauseButton.configuration?.background.strokeWidth = 2
+      pauseButton.configuration?.background.backgroundColor = UIColor.white
       
     } else {
       runTimer()
-      self.pauseButton.setImage(UIImage(systemName:"pause.fill", compatibleWith: .none), for: .normal)
+      pauseButton.setImage(UIImage(systemName:"pause"), for: .normal)
+      pauseButton.tintColor = UIColor.white
+      pauseButton.configuration?.background.backgroundColor = UIColor(named:"AccentColor")
       self.resumeTapped = false
-      pauseButton.setTitleColor(UIColor(named: "BoldOrange-Color", in: nil, compatibleWith: nil), for: .normal)
     }
   }
   
@@ -122,7 +126,7 @@ class TimerViewController: UIViewController {
     timer.invalidate()
     
     let alert = UIAlertController(title: "Reset Timer", message: "Are you sure to reset the Timer", preferredStyle: .alert)
-    
+    alert.view.tintColor = UIColor.init(named: "BoldOrange-Color")
     alert.addAction(UIAlertAction(title: "No", style: .default, handler: { (_) in
     }))
     alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { [self] (_) in
@@ -141,7 +145,7 @@ class TimerViewController: UIViewController {
     timer.invalidate()
 
     let alert = UIAlertController(title: "Stop Timer", message: "Are you sure to stop the timer?", preferredStyle: .alert)
-    
+    alert.view.tintColor = UIColor.init(named: "BoldOrange-Color")
     alert.addAction(UIAlertAction(title: "No", style: .default, handler: { (_) in
     }))
     alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { [self] (_) in
@@ -157,6 +161,7 @@ class TimerViewController: UIViewController {
     if seconds < 1 && seconds != nil{
       timer.invalidate()
       let alert = UIAlertController(title: "Congratzzz", message: "You've achieved your goals. Let's go back to home :))", preferredStyle: .alert)
+      alert.view.tintColor = UIColor.init(named: "BoldOrange-Color")
       alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: { [self] (_) in
         performSegue(withIdentifier: "toBack", sender: self)
         tabBarController?.tabBar.isHidden = false
