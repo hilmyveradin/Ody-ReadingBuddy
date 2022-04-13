@@ -4,6 +4,7 @@
 //
 //  Created by Muhammad Abdul Fattah on 12/04/22.
 //
+
 import Foundation
 import UIKit
 
@@ -20,7 +21,6 @@ class MainViewController: UIViewController {
   // Core Data properties
   var isGoalsSelected : IsGoalsSelected?
   var home : Home?
-  var leftBarButtonItem : UIBarButtonItem!
   
   var isGoalExists = false
   var timeTarget = 0
@@ -30,13 +30,16 @@ class MainViewController: UIViewController {
   
   
   //MARK: - Life Cycles
-  @IBAction func unwind( _ seg: UIStoryboardSegue) {
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
   }
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
 
     fetchWhenLoaded()
+    
     //otter gif
     let mascotGif = UIImage.gifImageWithName("masccotfin")
     imageView.image = mascotGif
@@ -45,14 +48,7 @@ class MainViewController: UIViewController {
     timeSpentFunction()
     daysSpentFunction()
     
-    self.navigationItem.leftBarButtonItem = nil
-    
     print("Main: View did load called!")
-  }
-  
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    almostOver()
   }
   
   // MARK: - Button Actions
@@ -63,9 +59,9 @@ class MainViewController: UIViewController {
       performSegue(withIdentifier: "toTimer", sender: self)
       
     } else {
-      let alert = UIAlertController(title: "You haven't set any goal", message: "Set goal before you start. Please go to 'Goals' page", preferredStyle: .alert)
-      alert.view.tintColor = UIColor.init(named: "BoldOrange-Color")
-      alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { action in
+      let alert = UIAlertController(title: "You haven't set any goal", message: "Set goal before you start. Go to 'Goals'?", preferredStyle: .alert)
+      
+      alert.addAction(UIAlertAction(title: "Yes", style: .cancel, handler: { action in
         //open goals
         
       }))
@@ -128,8 +124,6 @@ class MainViewController: UIViewController {
   }
   
   func timeSpentFunction(){
-    print(timeTarget)
-    print(timeSpent)
     //draw circletimeTarget
     let position = CGPoint(x: 263, y: 165)
     
@@ -165,14 +159,7 @@ class MainViewController: UIViewController {
     //get data
     //    timeSpent = 10
     //    timeTarget = 15
-    var progress: Double!
-    if timeSpent > 0 {
-      progress = Double(1) / Double(timeTarget) * (Double(timeTarget)-Double(timeSpent))
-    } else {
-      progress = Double(0)
-    }
-    
-//    print(progress)
+    let progress: Double = Double(1) / Double(timeTarget) * Double(timeSpent)
     
     basicAnimation.toValue = progress
     basicAnimation.duration = 1
@@ -182,31 +169,7 @@ class MainViewController: UIViewController {
     shapeLayer.add(basicAnimation, forKey: "animation")
     
     //set label
-    if timeSpent <= 60 && timeSpent > 0 {
-      print("1")
-      timeSpentUI.text = "\(timeSpent)s"
-    }
-    else if 60 < timeSpent && timeSpent < 3600  && timeSpent > 0 {
-      print("2")
-      let minutes = timeSpent/60%60
-      timeSpentUI.text = "\(minutes)m"
-    }
-    else if timeSpent > 3600 && timeSpent > 0 {
-      print("3")
-      let hour = timeSpent/3600
-      timeSpentUI.text = "\(hour)h"
-    } else if timeTarget <= 60 {
-      print("4")
-      timeSpentUI.text = "\(timeTarget)s"
-    } else if timeTarget > 60 && timeTarget < 3600 {
-      print("5")
-      let minutes = timeTarget/60%60
-      timeSpentUI.text = "\(minutes)m"
-    } else {
-      print("6")
-      let hour = timeTarget/3600
-      timeSpentUI.text = "\(hour)h"
-    }
+    timeSpentUI.text = "\(timeSpent)m"
   }
   
   func fetchWhenLoaded() {
@@ -241,51 +204,6 @@ class MainViewController: UIViewController {
       self.timeSpent = Int(home.timeSpent)
       print("Main: Home fetch succeed!")
     
-    
-
-  }
-  
-  private func almostOver() {
-    if daysSpent == daysTarget-1 && timeTarget != 0{
-      let alert = UIAlertController(title: "One Day Left!", message: "Tomorrow is your last day in this goal. Keep it up!", preferredStyle: .alert)
-      alert.addAction(UIAlertAction(title: "Sure!", style: .default))
-      self.present(alert, animated: true, completion: nil)
-    } else if daysSpent == daysTarget && timeTarget != 0 {
-      let alert = UIAlertController(title: "Target Finished!", message: "You have finished your current goal. Let's set another goal!", preferredStyle: .alert)
-      alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: { [self] _ in
-        resetGoal()
-      }))
-      self.present(alert, animated: true, completion: nil)
-    }
-  }
-  
-  private func resetGoal() {
-    /*
-     1. delete home entitiy
-     2. delete myGoals entitiy
-     3. delete isGoalsSelected
-     4. delete timer
-     5. delete preferences
-     7. delete current Day
-     6. reset notifications
-     
-     */
-    //1
-    CoreDataManager.manager.deleteHome()
-    //2
-    CoreDataManager.manager.deleteGoals()
-    //3
-    CoreDataManager.manager.deleteIsGoalsSelected()
-    //4
-    CoreDataManager.manager.deleteTimer()
-    //5
-    CoreDataManager.manager.deletePreferences()
-    //6
-    CoreDataManager.manager.deleteCurrentDay()
-    //7
-    CoreDataManager.manager.deleteWeekday()
-    //6
-    NotificationManager.manager.resetNotification()
   }
   
   //  @IBOutlet weak var mainImageView: UIImageView!

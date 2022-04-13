@@ -156,7 +156,7 @@ class NotificationManager {
     
 
 //    let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
-    let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 20, repeats: false)
+    let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
     let request = UNNotificationRequest(identifier: "testInterval",
                                         content: notificationContent,
                                         trigger: trigger)
