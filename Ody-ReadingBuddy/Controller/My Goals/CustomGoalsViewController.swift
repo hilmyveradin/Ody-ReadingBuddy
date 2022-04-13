@@ -18,8 +18,9 @@ class CustomGoalsViewController: UIViewController {
       tableView.isScrollEnabled = false
     }
   }
-  
   @IBOutlet weak var saveSettingButton: UIButton!
+  var weekdays: Weekdays?
+  
   
   var days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
   var daysDict = [
@@ -49,15 +50,21 @@ class CustomGoalsViewController: UIViewController {
     saveSettingButton.layer.cornerRadius = 10
   }
   
+  //MARK: - Button Actions
+  
   @IBAction func saveSettingsPressed(_ sender: UIButton!) {
     let alert = UIAlertController(title: "Custom Days Saved", message: "You have sucessfully saved your days preferences" , preferredStyle: .alert)
+    alert.view.tintColor = UIColor.init(named: "BoldOrange-Color")
     alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
+      CoreDataManager.manager.insertWeekday(weekArray: self.selectedDaysIndex)
       NSLog("The \"OK\" alert occured.")
     }))
     self.present(alert, animated: true, completion: nil)
     getSelectedDays()
     print(selectedDaysIndex)
   }
+  
+  //MARK: - Function Helpers
   
   private func getSelectedDays() {
     selectedDaysString = daysDict.allKeys(forValue: true)

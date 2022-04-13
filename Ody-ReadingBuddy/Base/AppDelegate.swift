@@ -12,8 +12,6 @@ import UserNotifications
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
-
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     // Override point for customization after application launch.
     /*
@@ -24,9 +22,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
      increaseDaysSpent()
      }
      */
-//    NotificationManager.manager.resetNotification()
-    NewDayManager.manager.compareDay()
-    CoreDataManager.manager.deleteHome()
+////    NotificationManager.manager.resetNotification()
+//    NewDayManager.manager.compareDay()
+////    CoreDataManager.manager.deleteWeekday()
+////    CoreDataManager.manager.deletePreferences()
+    NotificationManager.manager.testNotification()
     return true
   }
 
@@ -94,5 +94,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //      }
 //  }
 //
+  //add comment
 }
 

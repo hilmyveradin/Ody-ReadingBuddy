@@ -105,6 +105,7 @@ class TimerViewController: UIViewController {
     if self.resumeTapped == false {
       timer.invalidate()
       self.pauseButton.setImage(UIImage(systemName:"play.fill", compatibleWith: .none), for: .normal)
+      pauseButton.tintColor = .blue
       self.resumeTapped = true
       pauseButton.setTitleColor(.white, for: .normal)
       

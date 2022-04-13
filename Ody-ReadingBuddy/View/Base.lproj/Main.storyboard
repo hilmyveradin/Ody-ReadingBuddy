@@ -25,30 +25,30 @@
             </objects>
             <point key="canvasLocation" x="-436" y="-155"/>
         </scene>
-        <!--MyGoals-->
+        <!--Timer-->
         <scene sceneID="tU8-Bv-L4h">
             <objects>
-                <viewControllerPlaceholder storyboardName="MyGoals" id="069-4b-6sU" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Timer" id="069-4b-6sU" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="LsK-tR-yOn"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1VS-rm-8ux" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-817" y="263"/>
         </scene>
-        <!--Notification-->
+        <!--MyGoals-->
         <scene sceneID="Fl2-Fe-kec">
             <objects>
-                <viewControllerPlaceholder storyboardName="Notification" id="Te0-F7-svP" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="MyGoals" id="Te0-F7-svP" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="N3d-Dm-7n8"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ti3-IN-eu1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-436" y="263"/>
         </scene>
-        <!--Timer-->
+        <!--Notification-->
         <scene sceneID="g8x-nl-JNU">
             <objects>
-                <viewControllerPlaceholder storyboardName="Timer" id="Dv4-JW-JFI" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Notification" id="Dv4-JW-JFI" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="S3W-yi-Fw2"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="riF-3Q-bwB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

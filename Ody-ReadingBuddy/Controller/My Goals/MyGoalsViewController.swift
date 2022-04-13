@@ -31,9 +31,11 @@ class MyGoalsViewController: UIViewController {
   var myGoals : MyGoals?
   var isGoalsSelected : IsGoalsSelected?
   var home : Home?
+  var weekday: Weekdays?
   
   var isGoalsExists = false
-  var initialWeekday = [1, 2, 3, 4, 5, 6, 7]
+  var ifSwitchPressed = false
+  var initialWeekday = [Int]()
   var initialHours = [5, 12]
   
   
@@ -52,10 +54,19 @@ class MyGoalsViewController: UIViewController {
   }
   
   //MARK: - Button Actions
+  @IBAction func switchPressed(_ sender: Any) {
+    if ifSwitchPressed == false {
+      ifSwitchPressed = true
+      performSegue(withIdentifier: "MyGoalsToCustom", sender: self)
+    } else {
+      ifSwitchPressed = false
+    }
+  }
   
   @IBAction func saveButtonPressed(_ sender: UIButton!) {
     if isGoalsExists == false {
       let alert = UIAlertController(title: "Goals Saved", message: "You have sucessfully saved your goals" , preferredStyle: .alert)
+      alert.view.tintColor = UIColor.init(named: "BoldOrange-Color")
       alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { [self] _ in
         self.saveGoals()
         self.setupView()
@@ -64,7 +75,8 @@ class MyGoalsViewController: UIViewController {
       
     } else {
       
-      let alert = UIAlertController(title: "Do You Want To End Goal?", message: "My goals can be eidted after the current goal is ended" , preferredStyle: .alert)
+      let alert = UIAlertController(title: "Do You Want To End Goal?", message: "My goals can be edited after the current goal is ended" , preferredStyle: .alert)
+      alert.view.tintColor = UIColor.init(named: "BoldOrange-Color")
       alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
       alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { _ in
         self.resetGoals()
@@ -84,7 +96,8 @@ class MyGoalsViewController: UIViewController {
      2. masukin semua hal ke Home
      3. masukin "true" ke isGoalsSelected
      4. get currentDay (for starting)
-     5. get notifications
+     5. get weekdays
+     6. get notifications
      */
     //1
     CoreDataManager.manager.insertGoal(goalsName: self.goalsText.text!, startDate: self.startDate.date, endDate: self.endDate.date, duration: self.durationGoal.date)
@@ -98,6 +111,9 @@ class MyGoalsViewController: UIViewController {
     //4
     getCurrentDay(startDate: startDate.date)
     //5
+    initialWeekday = getWeekday()
+    //6
+    NotificationManager.manager.getWeekday(weekdays: initialWeekday)
     NotificationManager.manager.monthDateFormatter(startDate: startDate.date, endDate: endDate.date)
     NotificationManager.manager.dayDateFormatter(startDate: startDate.date, endDate: endDate.date)
     NotificationManager.manager.getNotification()
@@ -128,8 +144,19 @@ class MyGoalsViewController: UIViewController {
     CoreDataManager.manager.deletePreferences()
     //6
     CoreDataManager.manager.deleteCurrentDay()
+    //7
+    CoreDataManager.manager.deleteWeekday()
     //6
     NotificationManager.manager.resetNotification()
+  }
+  
+  private func getWeekday() -> [Int] {
+    let weekdays = CoreDataManager.manager.fetchWeekdays()
+    guard let weekdays = weekdays else {
+      return [1, 2, 3, 4, 5, 6, 7]
+    }
+    
+    return weekdays.weekdays!
   }
   
   private func getCurrentDay(startDate: Date) {
@@ -166,7 +193,7 @@ class MyGoalsViewController: UIViewController {
   
   func getNumberOfDays() -> Int16 {
     let numberofDays = Calendar.current.dateComponents([.day], from: startDate.date, to: endDate.date)
-    return Int16(numberofDays.day!)
+    return Int16(numberofDays.day!+1)
   }
   
   func getNumberOfDuration() -> Int64 {

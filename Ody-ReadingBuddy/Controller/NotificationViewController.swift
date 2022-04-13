@@ -46,6 +46,7 @@ class NotificationViewController: UIViewController {
     super.viewWillAppear(animated)
     fetchInLoad()
     setupView()
+    print("ABC")
   }
   
   // MARK: - View Actions
@@ -75,25 +76,33 @@ class NotificationViewController: UIViewController {
      1. save index preference and hours preferences
      2. reset notifications
      3. fetch data dari my Goals
+     4. fetch data dari week
      4. re-upload notifications
      */
     
-    // 1
-    CoreDataManager.manager.insertPreferences(index: Int16(savedIndex), hours: selectedHours)
+    saveIndexAndHours()
     // 2
     NotificationManager.manager.resetNotification()
     
     if selectedHours != nil {
       // 3
-      guard let myGoals = CoreDataManager.manager.fetchGoals() else {
+      guard let myGoals = CoreDataManager.manager.fetchGoals(),
+            let weekdays = CoreDataManager.manager.fetchWeekdays() else {
         return print("fetch failed")
       }
       // 4
       NotificationManager.manager.monthDateFormatter(startDate: myGoals.startDate!, endDate: myGoals.endDate!)
       NotificationManager.manager.dayDateFormatter(startDate: myGoals.startDate!, endDate: myGoals.endDate!)
+      NotificationManager.manager.getWeekday(weekdays: weekdays.weekdays!)
       NotificationManager.manager.getHours(hours: selectedHours)
       NotificationManager.manager.getNotification()
     }
+  }
+  
+  func saveIndexAndHours() {
+    CoreDataManager.manager.deletePreferences()
+    // 1
+    CoreDataManager.manager.insertPreferences(index: Int16(savedIndex), hours: selectedHours)
   }
   
   
@@ -127,9 +136,9 @@ extension NotificationViewController {
     outletInit()
     if isGoalsExists == false {
       print("Notification = Goal don't exists")
-      prefView.cellForRow(at: IndexPath.init(row: 0, section: 1))?.accessoryType = .checkmark
+//      prefView.cellForRow(at: IndexPath.init(row: 0, section: 1))?.accessoryType = .checkmark
     } else {
-      prefView.cellForRow(at: IndexPath.init(row: savedIndex, section: 1))?.accessoryType = .checkmark
+//      prefView.cellForRow(at: IndexPath.init(row: savedIndex, section: 1))?.accessoryType = .checkmark
     }
   }
   
@@ -152,26 +161,41 @@ extension NotificationViewController: UITableViewDelegate, UITableViewDataSource
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    print("reload table")
     let cell = prefView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
     cell.textLabel?.text = "\(periodArray[indexPath.row].periodName) : \(periodArray[indexPath.row].periodStart) - \(periodArray[indexPath.row].periodFinish)"
-    cell.selectionStyle = .none
+    if indexPath.row == savedIndex {
+      cell.accessoryType = .checkmark
+    } else {
+      cell.accessoryType = .none
+    }
     return cell
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    prefView.cellForRow(at: indexPath)?.accessoryType = .checkmark
-    //    periodArray[indexPath[1]].periodState = true
-    //print(periodArray) // Need fixed
+//    if prefView.cellForRow(at: indexPath)?.accessoryType == .checkmark {
+//      prefView.cellForRow(at: indexPath)?.accessoryType = .none
+//    } else {
+//      prefView.cellForRow(at: indexPath)?.accessoryType = .checkmark
+//    }
+    
     savedIndex = indexPath.row
-    selectedHours = selectedItemDict[savedIndex]!
-    print(selectedHours!)
+    print(savedIndex)
+    print(periodArray)
+    saveIndexAndHours()
+    fetchInLoad()
+    prefView.reloadData()
   }
   
   func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
     prefView.cellForRow(at: indexPath)?.accessoryType = .none
-    periodArray[indexPath[1]].periodState = false
+//
+//    prefView.cellForRow(at: indexPath)?.accessoryType = .none
+//    periodArray[indexPath[1]].periodState = false
     //print(periodArray)
   }
+  
+  
   
 }
 

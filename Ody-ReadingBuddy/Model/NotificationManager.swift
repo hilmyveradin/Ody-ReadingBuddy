@@ -17,6 +17,7 @@ class NotificationManager {
   var months = [Int]()
   var days = [Int]()
   var hours = [5, 12]
+  var weekdays = [1, 2, 3, 4, 5, 6, 7]
   
   let totalDaysInMonths = [
     1 : 31,
@@ -58,10 +59,15 @@ class NotificationManager {
     months = []
     days = []
     hours = [5, 12]
+    weekdays = [1, 2, 3, 4, 5, 6, 7]
   }
   
   public func getHours(hours: [Int]) {
     self.hours = hours
+  }
+  
+  public func getWeekday(weekdays: [Int]) {
+    self.weekdays = weekdays
   }
   
   func getNotification() {
@@ -84,24 +90,26 @@ class NotificationManager {
 //    }
     
     for month in self.months {
-      for day in self.days {
-        for hour in self.hours {
-          
-          var dateComponents = DateComponents()
-          
-          dateComponents.calendar = Calendar.current
-          dateComponents.month = month
-          dateComponents.day = day
-          dateComponents.hour = hour
-          let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
-          let request = UNNotificationRequest(identifier: "\(month),\(day),\(hour)",
-                                              content: notificationContent,
-                                              trigger: trigger)
-          userNotificationCenter.add(request) { (error) in
-            if let error = error {
-              print("Notification Error: ", error)
-            }
+      for weekday in weekdays {
+        for day in self.days {
+          for hour in self.weekdays {
+            var dateComponents = DateComponents()
             
+            dateComponents.calendar = Calendar.current
+            dateComponents.month = month
+            dateComponents.day = day
+            dateComponents.hour = hour
+            dateComponents.weekday = weekday
+            
+            let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+            let request = UNNotificationRequest(identifier: "\(month),\(day),\(hour), \(weekday)",
+                                                content: notificationContent,
+                                                trigger: trigger)
+            userNotificationCenter.add(request) { (error) in
+              if let error = error {
+                print("Notification Error: ", error)
+              }
+            }
           }
           print("Notification added!")
         }
@@ -136,6 +144,27 @@ class NotificationManager {
       for day in startDay ... endDay {
         self.days.append(day)
       }
+    }
+  }
+  
+  func testNotification() {
+    let notificationContent = UNMutableNotificationContent()
+    
+    notificationContent.title = "It's time to read!"
+    notificationContent.body = "Let's start reading. Your progress is waiting to be completed"
+    notificationContent.badge = NSNumber(value: 1)
+    
+
+//    let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+    let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 20, repeats: false)
+    let request = UNNotificationRequest(identifier: "testInterval",
+                                        content: notificationContent,
+                                        trigger: trigger)
+    userNotificationCenter.add(request) { (error) in
+      if let error = error {
+        print("Notification Error: ", error)
+      }
+      
     }
   }
 }

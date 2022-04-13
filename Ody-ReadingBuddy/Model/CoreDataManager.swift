@@ -325,25 +325,36 @@ public class CoreDataManager {
 
 
 
-  //  // MARK: - Weekdays Function
-  //  func insertHours(weekArray: [Int]?) {
-  //    let context = CoreDataManager.manager.managedContext
-  //    let weekdays = Weekdays(context: context)
-  //
-  //    if let weekArray = weekArray {
-  //      weekdays.weekdays = weekArray
-  //    }
-  //  }
-  //
-  //  func deleteTimer(weekdays: Weekdays) {
-  //    let context = CoreDataManager.manager.managedContext
-  //    context.delete(weekdays)
-  //  }
-  //
-  //  func fetchTimer() -> Weekdays? {
-  //    let request = NSFetchRequest<Weekdays>(entityName: "Weekdays")
-  //    let weekdays = try! CoreDataManager.manager.managedContext.fetch(request)
-  //    return weekdays[0]
-  //  }
-  //}
+    // MARK: - Weekdays Function
+    func insertWeekday(weekArray: [Int]?) {
+      let context = CoreDataManager.manager.managedContext
+      let weekdays = Weekdays(context: context)
+  
+      if let weekArray = weekArray {
+        weekdays.weekdays = weekArray
+      }
+    }
+  
+    func deleteWeekday() {
+      let context = CoreDataManager.manager.managedContext
+      let request = NSFetchRequest<Weekdays>(entityName: "Weekdays")
+      let weekdays = try! CoreDataManager.manager.managedContext.fetch(request)
+
+      if weekdays.count > 0 {
+        context.delete(weekdays[0])
+        try? context.save()
+      }
+    }
+  
+    func fetchWeekdays() -> Weekdays? {
+      let request = NSFetchRequest<Weekdays>(entityName: "Weekdays")
+      let weekdays = try! CoreDataManager.manager.managedContext.fetch(request)
+      if weekdays.count > 0 {
+//        print("Manager: Fetch GoalsSelected, of ISGoalsSelected: \(isGoalsSelected.count)")
+        return weekdays[0]
+      } else {
+        return nil
+      }
+      
+    }
 }
